@@ -118,64 +118,30 @@ const strTpl = `
 
 	{{ if $r.GetIp }}
 	{
-		const std::string& value = {{ accessor . }};
-		if (!pgv::IsIp(value)) {
-			{{ err . "value must be a valid IP Address" }}
-		}
+		{{ unimplemented "C++ ip address validation is not implemented" }}
 	}
 	{{ else if $r.GetIpv4 }}
 	{
-		const std::string& value = {{ accessor . }};
-		if (!pgv::IsIpv4(value)) {
-			{{ err . "value must be a valid IPv4 Address" }}
-		}
+		{{ unimplemented "C++ ipv4 address validation is not implemented" }}
 	}
 	{{ else if $r.GetIpv6 }}
 	{
-		const std::string& value = {{ accessor . }};
-		if (!pgv::IsIpv6(value)) {
-			{{ err . "value must be a valid IPv6 Address" }}
-		}
+		{{ unimplemented "C++ ipv6 address validation is not implemented" }}
 	}
 	{{ else if $r.GetEmail }}
 		{{ unimplemented "C++ email address validation is not implemented" }}
-		{{/* TODO(akonradi) implement email address constraints
-		if err := m._validateEmail({{ accessor . }}); err != nil {
-			return {{ errCause . "err" "value must be a valid email address" }}
-		}
-		*/}}
 	{{ else if $r.GetAddress }}
 	{
-		const std::string& value = {{ accessor . }};
-
-		if (!pgv::IsHostname(value) && !pgv::IsIp(value)) {
-			{{ err . "value must be an ip address, or a hostname." }}
-		}
+		{{ unimplemented "C++ address validation is not implemented" }}
 	}
 	{{ else if $r.GetHostname }}
 	{
-		const std::string& value = {{ accessor . }};
-
-		if (!pgv::IsHostname(value)) {
-			{{ err . "value must be a valid hostname" }}
-		}
+		{{ unimplemented "C++ hostname validation is not implemented" }}
 	}
 	{{ else if $r.GetUri }}
 		{{ unimplemented "C++ URI validation is not implemented" }}
-		{{/* TODO(akonradi) implement URI constraints
-		if uri, err := url.Parse({{ accessor . }}); err != nil {
-			return {{ errCause . "err" "value must be a valid URI" }}
-		} else if !uri.IsAbs() {
-			return {{ err . "value must be absolute" }}
-		}
-		*/}}
 	{{ else if $r.GetUriRef }}
 		{{ unimplemented "C++ URI validation is not implemented" }}
-		{{/* TODO(akonradi) implement URI constraints
-		if _, err := url.Parse({{ accessor . }}); err != nil {
-			return {{ errCause . "err" "value must be a valid URI" }}
-		}
-		*/}}
 	{{ else if $r.GetUuid }}
                 if (!RE2::FullMatch(re2::StringPiece({{ accessor . }}), pgv::validate::_uuidPattern)) {
                         {{ err . "value must be a valid UUID" }}
