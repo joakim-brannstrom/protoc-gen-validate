@@ -196,29 +196,28 @@ func (fns CCFuncs) errIdxCause(ctx shared.RuleContext, idx, cause string, reason
 	output := []string{
 		"{",
         "if (err) {",
-		`std::ostringstream msg("invalid ");`,
+        "const char* errMsg = ",
 	}
 
 	if ctx.OnKey {
-		output = append(output, `msg << "key for ";`)
+		output = append(output, `"key for "`)
 	}
 	output = append(output,
-		fmt.Sprintf(`msg << %q << "." << %s;`,
+		fmt.Sprintf(`%q "." %s`,
 			errName, fns.lit(pgsgo.PGGUpperCamelCase(f.Name()))))
 
 	if idx != "" {
-		output = append(output, fmt.Sprintf(`msg << "[" << %s << "]";`, idx))
+		output = append(output, fmt.Sprintf(`"[" %s "]"`, idx))
 	} else if ctx.Index != "" {
-		output = append(output, fmt.Sprintf(`msg << "[" << %s << "]";`, ctx.Index))
+		output = append(output, fmt.Sprintf(`"[" %s "]"`, ctx.Index))
 	}
 
-	output = append(output, fmt.Sprintf(`msg << ": " << %q;`, fmt.Sprint(reason...)))
+	output = append(output, fmt.Sprintf(`": " %q`, fmt.Sprint(reason...)))
 
-	if cause != "nil" && cause != "" {
-		output = append(output, fmt.Sprintf(`msg << " | caused by " << %s;`, cause))
-	}
-
-	output = append(output, "*err = msg.str();",
+	output = append(output,
+        ";",
+        "err->log(errMsg);",
+        "err->done();",
         "}",
 		"return false;",
 		"}")
