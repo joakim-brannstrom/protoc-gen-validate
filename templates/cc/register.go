@@ -195,6 +195,7 @@ func (fns CCFuncs) errIdxCause(ctx shared.RuleContext, idx, cause string, reason
 
 	output := []string{
 		"{",
+        "if (err) {",
 		`std::ostringstream msg("invalid ");`,
 	}
 
@@ -218,6 +219,7 @@ func (fns CCFuncs) errIdxCause(ctx shared.RuleContext, idx, cause string, reason
 	}
 
 	output = append(output, "*err = msg.str();",
+        "}",
 		"return false;",
 		"}")
 	return strings.Join(output, "\n")
@@ -350,13 +352,13 @@ func (fns CCFuncs) cTypeOfString(s string) string {
 	case "float64":
 		return "double"
 	case "int32":
-		return "int32_t"
+        return "std::int32_t"
 	case "int64":
-		return "int64_t"
+        return "std::int64_t"
 	case "uint32":
-		return "uint32_t"
+        return "std::uint32_t"
 	case "uint64":
-		return "uint64_t"
+        return "std::uint64_t"
 	case "[]byte":
 		return "string"
 	default:
