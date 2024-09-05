@@ -2,7 +2,8 @@ package cc
 
 const declTpl = `
 {{ if not (ignored .) -}}
-extern bool Validate(const {{ class . }}& m, pgv::ValidationMsg* err);
+extern bool validate(const {{ class . }}& m);
+extern bool validate(const {{ class . }}& m, pgv::ValidationLog* err);
 {{- end -}}
 `
 
@@ -119,7 +120,11 @@ const msgTpl = `
 
 {{ end }}{{ end }}
 
-bool Validate(const {{ class . }}& m, pgv::ValidationMsg* err) {
+bool validate(const {{ class . }}& m) {
+    return validate(m, nullptr);
+}
+
+bool validate(const {{ class . }}& m, pgv::ValidationLog* err) {
 	(void)m;
 	(void)err;
 {{- if disabled . }}
