@@ -111,10 +111,8 @@ const strTpl = `
 
         {{ if $r.Pattern }}
         {
-                if (!RE2::FullMatch(re2::StringPiece({{ accessor . }}.c_str(), {{ accessor . }}.size()),
-                                    {{ lookup $f "Pattern" }})) {
-		        {{ err . "value does not match regex pattern " (lit $r.GetPattern) }}
-	        }
+            // no validation rules for {{ .Field.Name }} = "{{ .Rules.Pattern }}"
+            {{ unimplemented "Regexp matchning is not implemented" }}
         }
 	{{ end }}
 
