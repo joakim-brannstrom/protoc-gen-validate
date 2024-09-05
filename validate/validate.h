@@ -106,50 +106,6 @@ static inline bool NotContains(const string& search_in, const string& to_find) {
   return !Contains(search_in, to_find);
 }
 
-static inline bool IsIpv4(const string& to_validate) {
-  struct sockaddr_in sa;
-  return !(inet_pton(AF_INET, to_validate.c_str(), &sa.sin_addr) < 1);
-}
-
-static inline bool IsIpv6(const string& to_validate) {
-  struct sockaddr_in6 sa_six;
-  return !(inet_pton(AF_INET6, to_validate.c_str(), &sa_six.sin6_addr) < 1);
-}
-
-static inline bool IsIp(const string& to_validate) {
-  return IsIpv4(to_validate) || IsIpv6(to_validate);
-}
-
-static inline bool IsHostname(const string& to_validate) {
-  if (to_validate.length() > 253) {
-    return false;
-  }
-
-  const std::regex dot_regex{"\\."};
-  const auto iter_end = std::sregex_token_iterator();
-  auto iter = std::sregex_token_iterator(to_validate.begin(), to_validate.end(), dot_regex, -1);
-  for (; iter != iter_end; ++iter) {
-    const std::string& part = *iter;
-    if (part.empty() || part.length() > 63) {
-      return false;
-    }
-    if (part.at(0) == '-') {
-      return false;
-    }
-    if (part.at(part.length() - 1) == '-') {
-      return false;
-    }
-    for (const auto& character : part) {
-      if ((character < 'A' || character > 'Z') && (character < 'a' || character > 'z') &&
-          (character < '0' || character > '9') && character != '-') {
-        return false;
-      }
-    }
-  }
-
-  return true;
-}
-
 namespace {
 
 inline int OneCharLen(const char* src) {
