@@ -3,6 +3,8 @@ package cc
 const mapTpl = `
 	{{ $f := .Field }}{{ $r := .Rules }}
 
+	{{ template "required" . }}
+
 	{{ if $r.GetIgnoreEmpty }}
 		if ({{ accessor . }}.size() > 0) {
 	{{ end }}

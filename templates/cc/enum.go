@@ -2,6 +2,7 @@ package cc
 
 const enumTpl = `
 		{{ $f := .Field }}{{ $r := .Rules }}
+        {{ template "required" . }}
 		{{ template "const" . }}
 		{{ template "in" . }}
 

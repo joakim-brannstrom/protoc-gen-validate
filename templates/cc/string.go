@@ -2,6 +2,7 @@ package cc
 
 const strTpl = `
 	{{ $f := .Field }}{{ $r := .Rules }}
+	{{ template "required" . }}
 	{{ if $r.GetIgnoreEmpty }}
 		if ({{ accessor . }} != "") {
 	{{ end }}
