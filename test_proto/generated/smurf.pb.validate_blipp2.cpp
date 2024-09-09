@@ -2,7 +2,7 @@
 // source: smurf.proto
 // DO NOT EDIT!!!
 
-#include "smurf.pb.validate.h"
+#include "smurf.pb.validate.hpp"
 
 #include <google/protobuf/message.h>
 #include <google/protobuf/util/time_util.h>

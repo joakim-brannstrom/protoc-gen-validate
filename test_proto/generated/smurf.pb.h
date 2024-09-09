@@ -29,6 +29,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "validate/validate.pb.h"
 // @@protoc_insertion_point(includes)
@@ -59,6 +60,31 @@ template<> ::examplepb::Person_Location* Arena::CreateMaybeMessage<::examplepb::
 PROTOBUF_NAMESPACE_CLOSE
 namespace examplepb {
 
+enum MyEnum : int {
+  foo = 0,
+  bar = 1,
+  MyEnum_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  MyEnum_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool MyEnum_IsValid(int value);
+constexpr MyEnum MyEnum_MIN = foo;
+constexpr MyEnum MyEnum_MAX = bar;
+constexpr int MyEnum_ARRAYSIZE = MyEnum_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MyEnum_descriptor();
+template<typename T>
+inline const std::string& MyEnum_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, MyEnum>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function MyEnum_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    MyEnum_descriptor(), enum_t_value);
+}
+inline bool MyEnum_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, MyEnum* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<MyEnum>(
+    MyEnum_descriptor(), name, value);
+}
 // ===================================================================
 
 class Person_Location final :
@@ -343,9 +369,52 @@ class Person final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kAstringFieldNumber = 9,
+    kAbytesFieldNumber = 10,
     kHomeFieldNumber = 4,
     kIdFieldNumber = 1,
+    kAuint64FieldNumber = 5,
+    kAint64FieldNumber = 6,
+    kAuint32FieldNumber = 7,
+    kAint32FieldNumber = 8,
+    kAenumFieldNumber = 11,
   };
+  // optional string astring = 9 [(.validate.rules) = {
+  bool has_astring() const;
+  private:
+  bool _internal_has_astring() const;
+  public:
+  void clear_astring();
+  const std::string& astring() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_astring(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_astring();
+  PROTOBUF_NODISCARD std::string* release_astring();
+  void set_allocated_astring(std::string* astring);
+  private:
+  const std::string& _internal_astring() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_astring(const std::string& value);
+  std::string* _internal_mutable_astring();
+  public:
+
+  // optional bytes abytes = 10 [(.validate.rules) = {
+  bool has_abytes() const;
+  private:
+  bool _internal_has_abytes() const;
+  public:
+  void clear_abytes();
+  const std::string& abytes() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_abytes(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_abytes();
+  PROTOBUF_NODISCARD std::string* release_abytes();
+  void set_allocated_abytes(std::string* abytes);
+  private:
+  const std::string& _internal_abytes() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_abytes(const std::string& value);
+  std::string* _internal_mutable_abytes();
+  public:
+
   // .examplepb.Person.Location home = 4 [(.validate.rules) = {
   bool has_home() const;
   private:
@@ -373,6 +442,71 @@ class Person final :
   void _internal_set_id(uint64_t value);
   public:
 
+  // optional uint64 auint64 = 5 [(.validate.rules) = {
+  bool has_auint64() const;
+  private:
+  bool _internal_has_auint64() const;
+  public:
+  void clear_auint64();
+  uint64_t auint64() const;
+  void set_auint64(uint64_t value);
+  private:
+  uint64_t _internal_auint64() const;
+  void _internal_set_auint64(uint64_t value);
+  public:
+
+  // optional int64 aint64 = 6 [(.validate.rules) = {
+  bool has_aint64() const;
+  private:
+  bool _internal_has_aint64() const;
+  public:
+  void clear_aint64();
+  int64_t aint64() const;
+  void set_aint64(int64_t value);
+  private:
+  int64_t _internal_aint64() const;
+  void _internal_set_aint64(int64_t value);
+  public:
+
+  // optional uint32 auint32 = 7 [(.validate.rules) = {
+  bool has_auint32() const;
+  private:
+  bool _internal_has_auint32() const;
+  public:
+  void clear_auint32();
+  uint32_t auint32() const;
+  void set_auint32(uint32_t value);
+  private:
+  uint32_t _internal_auint32() const;
+  void _internal_set_auint32(uint32_t value);
+  public:
+
+  // optional int32 aint32 = 8 [(.validate.rules) = {
+  bool has_aint32() const;
+  private:
+  bool _internal_has_aint32() const;
+  public:
+  void clear_aint32();
+  int32_t aint32() const;
+  void set_aint32(int32_t value);
+  private:
+  int32_t _internal_aint32() const;
+  void _internal_set_aint32(int32_t value);
+  public:
+
+  // optional .examplepb.MyEnum aenum = 11 [(.validate.rules) = {
+  bool has_aenum() const;
+  private:
+  bool _internal_has_aenum() const;
+  public:
+  void clear_aenum();
+  ::examplepb::MyEnum aenum() const;
+  void set_aenum(::examplepb::MyEnum value);
+  private:
+  ::examplepb::MyEnum _internal_aenum() const;
+  void _internal_set_aenum(::examplepb::MyEnum value);
+  public:
+
   // @@protoc_insertion_point(class_scope:examplepb.Person)
  private:
   class _Internal;
@@ -381,9 +515,17 @@ class Person final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr astring_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr abytes_;
     ::examplepb::Person_Location* home_;
     uint64_t id_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint64_t auint64_;
+    int64_t aint64_;
+    uint32_t auint32_;
+    int32_t aint32_;
+    int aenum_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_smurf_2eproto;
@@ -553,6 +695,282 @@ inline void Person::set_allocated_home(::examplepb::Person_Location* home) {
   // @@protoc_insertion_point(field_set_allocated:examplepb.Person.home)
 }
 
+// optional uint64 auint64 = 5 [(.validate.rules) = {
+inline bool Person::_internal_has_auint64() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool Person::has_auint64() const {
+  return _internal_has_auint64();
+}
+inline void Person::clear_auint64() {
+  _impl_.auint64_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint64_t Person::_internal_auint64() const {
+  return _impl_.auint64_;
+}
+inline uint64_t Person::auint64() const {
+  // @@protoc_insertion_point(field_get:examplepb.Person.auint64)
+  return _internal_auint64();
+}
+inline void Person::_internal_set_auint64(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.auint64_ = value;
+}
+inline void Person::set_auint64(uint64_t value) {
+  _internal_set_auint64(value);
+  // @@protoc_insertion_point(field_set:examplepb.Person.auint64)
+}
+
+// optional int64 aint64 = 6 [(.validate.rules) = {
+inline bool Person::_internal_has_aint64() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool Person::has_aint64() const {
+  return _internal_has_aint64();
+}
+inline void Person::clear_aint64() {
+  _impl_.aint64_ = int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline int64_t Person::_internal_aint64() const {
+  return _impl_.aint64_;
+}
+inline int64_t Person::aint64() const {
+  // @@protoc_insertion_point(field_get:examplepb.Person.aint64)
+  return _internal_aint64();
+}
+inline void Person::_internal_set_aint64(int64_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.aint64_ = value;
+}
+inline void Person::set_aint64(int64_t value) {
+  _internal_set_aint64(value);
+  // @@protoc_insertion_point(field_set:examplepb.Person.aint64)
+}
+
+// optional uint32 auint32 = 7 [(.validate.rules) = {
+inline bool Person::_internal_has_auint32() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool Person::has_auint32() const {
+  return _internal_has_auint32();
+}
+inline void Person::clear_auint32() {
+  _impl_.auint32_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline uint32_t Person::_internal_auint32() const {
+  return _impl_.auint32_;
+}
+inline uint32_t Person::auint32() const {
+  // @@protoc_insertion_point(field_get:examplepb.Person.auint32)
+  return _internal_auint32();
+}
+inline void Person::_internal_set_auint32(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.auint32_ = value;
+}
+inline void Person::set_auint32(uint32_t value) {
+  _internal_set_auint32(value);
+  // @@protoc_insertion_point(field_set:examplepb.Person.auint32)
+}
+
+// optional int32 aint32 = 8 [(.validate.rules) = {
+inline bool Person::_internal_has_aint32() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool Person::has_aint32() const {
+  return _internal_has_aint32();
+}
+inline void Person::clear_aint32() {
+  _impl_.aint32_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline int32_t Person::_internal_aint32() const {
+  return _impl_.aint32_;
+}
+inline int32_t Person::aint32() const {
+  // @@protoc_insertion_point(field_get:examplepb.Person.aint32)
+  return _internal_aint32();
+}
+inline void Person::_internal_set_aint32(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.aint32_ = value;
+}
+inline void Person::set_aint32(int32_t value) {
+  _internal_set_aint32(value);
+  // @@protoc_insertion_point(field_set:examplepb.Person.aint32)
+}
+
+// optional string astring = 9 [(.validate.rules) = {
+inline bool Person::_internal_has_astring() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool Person::has_astring() const {
+  return _internal_has_astring();
+}
+inline void Person::clear_astring() {
+  _impl_.astring_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& Person::astring() const {
+  // @@protoc_insertion_point(field_get:examplepb.Person.astring)
+  return _internal_astring();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Person::set_astring(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.astring_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:examplepb.Person.astring)
+}
+inline std::string* Person::mutable_astring() {
+  std::string* _s = _internal_mutable_astring();
+  // @@protoc_insertion_point(field_mutable:examplepb.Person.astring)
+  return _s;
+}
+inline const std::string& Person::_internal_astring() const {
+  return _impl_.astring_.Get();
+}
+inline void Person::_internal_set_astring(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.astring_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Person::_internal_mutable_astring() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.astring_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Person::release_astring() {
+  // @@protoc_insertion_point(field_release:examplepb.Person.astring)
+  if (!_internal_has_astring()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.astring_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.astring_.IsDefault()) {
+    _impl_.astring_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void Person::set_allocated_astring(std::string* astring) {
+  if (astring != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.astring_.SetAllocated(astring, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.astring_.IsDefault()) {
+    _impl_.astring_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:examplepb.Person.astring)
+}
+
+// optional bytes abytes = 10 [(.validate.rules) = {
+inline bool Person::_internal_has_abytes() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool Person::has_abytes() const {
+  return _internal_has_abytes();
+}
+inline void Person::clear_abytes() {
+  _impl_.abytes_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& Person::abytes() const {
+  // @@protoc_insertion_point(field_get:examplepb.Person.abytes)
+  return _internal_abytes();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Person::set_abytes(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.abytes_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:examplepb.Person.abytes)
+}
+inline std::string* Person::mutable_abytes() {
+  std::string* _s = _internal_mutable_abytes();
+  // @@protoc_insertion_point(field_mutable:examplepb.Person.abytes)
+  return _s;
+}
+inline const std::string& Person::_internal_abytes() const {
+  return _impl_.abytes_.Get();
+}
+inline void Person::_internal_set_abytes(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.abytes_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Person::_internal_mutable_abytes() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.abytes_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Person::release_abytes() {
+  // @@protoc_insertion_point(field_release:examplepb.Person.abytes)
+  if (!_internal_has_abytes()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.abytes_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.abytes_.IsDefault()) {
+    _impl_.abytes_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void Person::set_allocated_abytes(std::string* abytes) {
+  if (abytes != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.abytes_.SetAllocated(abytes, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.abytes_.IsDefault()) {
+    _impl_.abytes_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:examplepb.Person.abytes)
+}
+
+// optional .examplepb.MyEnum aenum = 11 [(.validate.rules) = {
+inline bool Person::_internal_has_aenum() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool Person::has_aenum() const {
+  return _internal_has_aenum();
+}
+inline void Person::clear_aenum() {
+  _impl_.aenum_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000040u;
+}
+inline ::examplepb::MyEnum Person::_internal_aenum() const {
+  return static_cast< ::examplepb::MyEnum >(_impl_.aenum_);
+}
+inline ::examplepb::MyEnum Person::aenum() const {
+  // @@protoc_insertion_point(field_get:examplepb.Person.aenum)
+  return _internal_aenum();
+}
+inline void Person::_internal_set_aenum(::examplepb::MyEnum value) {
+  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_.aenum_ = value;
+}
+inline void Person::set_aenum(::examplepb::MyEnum value) {
+  _internal_set_aenum(value);
+  // @@protoc_insertion_point(field_set:examplepb.Person.aenum)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -562,6 +980,16 @@ inline void Person::set_allocated_home(::examplepb::Person_Location* home) {
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace examplepb
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::examplepb::MyEnum> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::examplepb::MyEnum>() {
+  return ::examplepb::MyEnum_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 
