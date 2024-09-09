@@ -33,4 +33,5 @@ message Person {
   optional string astring = 9 [(validate.rules).string = {max_bytes: 999, required: true}];
   optional bytes abytes = 10 [(validate.rules).bytes = {max_len: 999, required: true}];
   optional MyEnum aenum = 11 [(validate.rules).enum = {in: [0], required: true}];
+  Location amsg = 12 [(validate.rules).message = {required: true, custom: true}];
 }

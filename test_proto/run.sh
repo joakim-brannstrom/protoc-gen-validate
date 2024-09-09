@@ -12,5 +12,5 @@ autoformat --no-backup generated/smurf.pb.validate.cpp
 
 diff generated/smurf.pb.validate.cpp generated/smurf.pb.validate_blipp2.cpp || true
 
-time g++ -std=c++20 -o main main.cpp validate/validate.cpp generated/smurf.pb.cc generated/smurf.pb.validate.cpp generated/validate/validate.pb.cc -I generated/ -I .. -lprotobuf
+time g++ -g -std=c++20 -o main main.cpp validate/validate.cpp generated/smurf.pb.cc generated/smurf.pb.validate.cpp generated/validate/validate.pb.cc -I generated/ -I .. -lprotobuf
 ./main

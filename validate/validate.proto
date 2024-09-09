@@ -767,6 +767,8 @@ message MessageRules {
 
     // Required specifies that this field must be set
     optional bool required = 2;
+
+    optional bool custom = 3;
 }
 
 // RepeatedRules describe the constraints applied to `repeated` values

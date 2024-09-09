@@ -67,12 +67,30 @@ public:
    */
   static bool AbstractCheckMessage(const google::protobuf::Message& m, ValidationLog* err);
 
+  /**
+   * Validate/check a generic message object with a custom registered validator
+   * for the concrete message type.
+   * @param m supplies the parent message to check.
+   * @param m supplies the message to check.
+   * @param err supplies the place to return error information.
+   * @return true if the validation passes OR there is no registered validator for the concrete
+   *         message type. false is returned if validation explicitly fails.
+   */
+  static bool CustomCheckMessage(const google::protobuf::Message& parent,
+          const google::protobuf::Message& m,
+          ValidationLog* err);
+
 protected:
   // Used to implement AbstractCheckMessage() above. Every message that is linked into the binary
   // will register itself by type_index, allowing for polymorphic lookup later.
   static std::unordered_map<std::type_index,
                             std::function<bool(const google::protobuf::Message&, ValidationLog*)>>&
   abstractValidators();
+
+  static std::unordered_map<std::type_index,
+                            std::function<bool(const google::protobuf::Message&,
+                                               const google::protobuf::Message&, ValidationLog*)>>&
+  customValidators();
 };
 
 template <typename T> class Validator : public BaseValidator {
@@ -86,6 +104,20 @@ public:
 
 private:
   std::function<bool(const T&, ValidationLog*)> check_;
+};
+
+template <typename T> class CustomValidator : public BaseValidator {
+public:
+  CustomValidator(std::function<bool(const google::protobuf::Message&, const T&, ValidationLog*)> check) : check_(check) {
+    customValidators()[std::type_index(typeid(T))] = [this](const google::protobuf::Message& parent,
+                                                            const google::protobuf::Message& m,
+                                                              ValidationLog* err) -> bool {
+      return check_(parent, dynamic_cast<const T&>(m), err);
+    };
+  }
+
+private:
+  std::function<bool(const google::protobuf::Message&, const T&, ValidationLog*)> check_;
 };
 
 static inline std::string String(const ValidationMsg& msg) { return std::string(msg); }

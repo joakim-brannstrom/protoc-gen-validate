@@ -91,6 +91,39 @@ bool validate(const ::examplepb::Person& m, pgv::ValidationLog* err) {
         }
     }
 
+    if (!m.has_amsg()) {
+        {
+            if (err) {
+                const char* errMsg = "PersonValidationError"
+                                     "."
+                                     "Amsg"
+                                     ": "
+                                     "value is required";
+                err->log(errMsg);
+                err->done();
+            }
+            return false;
+        }
+    }
+
+    if (m.has_amsg() && !pgv::BaseValidator::CustomCheckMessage(m, m.amsg(), err)) {
+        if (err) {
+            err->embedded();
+        }
+        {
+            if (err) {
+                const char* errMsg = "PersonValidationError"
+                                     "."
+                                     "Amsg"
+                                     ": "
+                                     "embedded message failed validation";
+                err->log(errMsg);
+                err->done();
+            }
+            return false;
+        }
+    }
+
     if (!m.has_auint64()) {
         {
             if (err) {

@@ -372,6 +372,7 @@ class Person final :
     kAstringFieldNumber = 9,
     kAbytesFieldNumber = 10,
     kHomeFieldNumber = 4,
+    kAmsgFieldNumber = 12,
     kIdFieldNumber = 1,
     kAuint64FieldNumber = 5,
     kAint64FieldNumber = 6,
@@ -432,6 +433,24 @@ class Person final :
   void unsafe_arena_set_allocated_home(
       ::examplepb::Person_Location* home);
   ::examplepb::Person_Location* unsafe_arena_release_home();
+
+  // .examplepb.Person.Location amsg = 12 [(.validate.rules) = {
+  bool has_amsg() const;
+  private:
+  bool _internal_has_amsg() const;
+  public:
+  void clear_amsg();
+  const ::examplepb::Person_Location& amsg() const;
+  PROTOBUF_NODISCARD ::examplepb::Person_Location* release_amsg();
+  ::examplepb::Person_Location* mutable_amsg();
+  void set_allocated_amsg(::examplepb::Person_Location* amsg);
+  private:
+  const ::examplepb::Person_Location& _internal_amsg() const;
+  ::examplepb::Person_Location* _internal_mutable_amsg();
+  public:
+  void unsafe_arena_set_allocated_amsg(
+      ::examplepb::Person_Location* amsg);
+  ::examplepb::Person_Location* unsafe_arena_release_amsg();
 
   // uint64 id = 1 [(.validate.rules) = {
   void clear_id();
@@ -520,6 +539,7 @@ class Person final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr astring_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr abytes_;
     ::examplepb::Person_Location* home_;
+    ::examplepb::Person_Location* amsg_;
     uint64_t id_;
     uint64_t auint64_;
     int64_t aint64_;
@@ -969,6 +989,96 @@ inline void Person::_internal_set_aenum(::examplepb::MyEnum value) {
 inline void Person::set_aenum(::examplepb::MyEnum value) {
   _internal_set_aenum(value);
   // @@protoc_insertion_point(field_set:examplepb.Person.aenum)
+}
+
+// .examplepb.Person.Location amsg = 12 [(.validate.rules) = {
+inline bool Person::_internal_has_amsg() const {
+  return this != internal_default_instance() && _impl_.amsg_ != nullptr;
+}
+inline bool Person::has_amsg() const {
+  return _internal_has_amsg();
+}
+inline void Person::clear_amsg() {
+  if (GetArenaForAllocation() == nullptr && _impl_.amsg_ != nullptr) {
+    delete _impl_.amsg_;
+  }
+  _impl_.amsg_ = nullptr;
+}
+inline const ::examplepb::Person_Location& Person::_internal_amsg() const {
+  const ::examplepb::Person_Location* p = _impl_.amsg_;
+  return p != nullptr ? *p : reinterpret_cast<const ::examplepb::Person_Location&>(
+      ::examplepb::_Person_Location_default_instance_);
+}
+inline const ::examplepb::Person_Location& Person::amsg() const {
+  // @@protoc_insertion_point(field_get:examplepb.Person.amsg)
+  return _internal_amsg();
+}
+inline void Person::unsafe_arena_set_allocated_amsg(
+    ::examplepb::Person_Location* amsg) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.amsg_);
+  }
+  _impl_.amsg_ = amsg;
+  if (amsg) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:examplepb.Person.amsg)
+}
+inline ::examplepb::Person_Location* Person::release_amsg() {
+  
+  ::examplepb::Person_Location* temp = _impl_.amsg_;
+  _impl_.amsg_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::examplepb::Person_Location* Person::unsafe_arena_release_amsg() {
+  // @@protoc_insertion_point(field_release:examplepb.Person.amsg)
+  
+  ::examplepb::Person_Location* temp = _impl_.amsg_;
+  _impl_.amsg_ = nullptr;
+  return temp;
+}
+inline ::examplepb::Person_Location* Person::_internal_mutable_amsg() {
+  
+  if (_impl_.amsg_ == nullptr) {
+    auto* p = CreateMaybeMessage<::examplepb::Person_Location>(GetArenaForAllocation());
+    _impl_.amsg_ = p;
+  }
+  return _impl_.amsg_;
+}
+inline ::examplepb::Person_Location* Person::mutable_amsg() {
+  ::examplepb::Person_Location* _msg = _internal_mutable_amsg();
+  // @@protoc_insertion_point(field_mutable:examplepb.Person.amsg)
+  return _msg;
+}
+inline void Person::set_allocated_amsg(::examplepb::Person_Location* amsg) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.amsg_;
+  }
+  if (amsg) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(amsg);
+    if (message_arena != submessage_arena) {
+      amsg = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, amsg, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.amsg_ = amsg;
+  // @@protoc_insertion_point(field_set_allocated:examplepb.Person.amsg)
 }
 
 #ifdef __GNUC__

@@ -42,6 +42,7 @@ PROTOBUF_CONSTEXPR Person::Person(
   , /*decltype(_impl_.astring_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.abytes_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.home_)*/nullptr
+  , /*decltype(_impl_.amsg_)*/nullptr
   , /*decltype(_impl_.id_)*/uint64_t{0u}
   , /*decltype(_impl_.auint64_)*/uint64_t{0u}
   , /*decltype(_impl_.aint64_)*/int64_t{0}
@@ -86,6 +87,7 @@ const uint32_t TableStruct_smurf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::examplepb::Person, _impl_.astring_),
   PROTOBUF_FIELD_OFFSET(::examplepb::Person, _impl_.abytes_),
   PROTOBUF_FIELD_OFFSET(::examplepb::Person, _impl_.aenum_),
+  PROTOBUF_FIELD_OFFSET(::examplepb::Person, _impl_.amsg_),
   ~0u,
   ~0u,
   2,
@@ -95,10 +97,11 @@ const uint32_t TableStruct_smurf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   0,
   1,
   6,
+  ~0u,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::examplepb::Person_Location)},
-  { 8, 23, -1, sizeof(::examplepb::Person)},
+  { 8, 24, -1, sizeof(::examplepb::Person)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -108,7 +111,7 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_smurf_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\013smurf.proto\022\texamplepb\032\027validate/valid"
-  "ate.proto\"\366\003\n\006Person\022\024\n\002id\030\001 \001(\004B\010\372B\0052\003 "
+  "ate.proto\"\254\004\n\006Person\022\024\n\002id\030\001 \001(\004B\010\372B\0052\003 "
   "\347\007\0222\n\004home\030\004 \001(\0132\032.examplepb.Person.Loca"
   "tionB\010\372B\005\212\001\002\020\001\022 \n\007auint64\030\005 \001(\004B\n\372B\0072\005 \347"
   "\007H\001H\000\210\001\001\022\037\n\006aint64\030\006 \001(\003B\n\372B\007\"\005 \347\007H\001H\001\210\001"
@@ -116,19 +119,21 @@ const char descriptor_table_protodef_smurf_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "int32\030\010 \001(\005B\n\372B\007\032\005 \347\007H\001H\003\210\001\001\022!\n\007astring\030"
   "\t \001(\tB\013\372B\010r\006(\347\007\330\001\001H\004\210\001\001\022\037\n\006abytes\030\n \001(\014B"
   "\n\372B\007z\005\030\347\007x\001H\005\210\001\001\0221\n\005aenum\030\013 \001(\0162\021.exampl"
-  "epb.MyEnumB\n\372B\007\202\001\004\030\000(\001H\006\210\001\001\032V\n\010Location\022"
-  "$\n\003lat\030\001 \001(\001B\027\372B\024\022\022\031\000\000\000\000\000\200V@)\000\000\000\000\000\200V\300\022$\n"
-  "\003lng\030\002 \001(\001B\027\372B\024\022\022\031\000\000\000\000\000\200f@)\000\000\000\000\000\200f\300B\n\n\010_"
-  "auint64B\t\n\007_aint64B\n\n\010_auint32B\t\n\007_aint3"
-  "2B\n\n\010_astringB\t\n\007_abytesB\010\n\006_aenum*\032\n\006My"
-  "Enum\022\007\n\003foo\020\000\022\007\n\003bar\020\001b\006proto3"
+  "epb.MyEnumB\n\372B\007\202\001\004\030\000(\001H\006\210\001\001\0224\n\004amsg\030\014 \001("
+  "\0132\032.examplepb.Person.LocationB\n\372B\007\212\001\004\020\001\030"
+  "\001\032V\n\010Location\022$\n\003lat\030\001 \001(\001B\027\372B\024\022\022\031\000\000\000\000\000\200"
+  "V@)\000\000\000\000\000\200V\300\022$\n\003lng\030\002 \001(\001B\027\372B\024\022\022\031\000\000\000\000\000\200f@"
+  ")\000\000\000\000\000\200f\300B\n\n\010_auint64B\t\n\007_aint64B\n\n\010_aui"
+  "nt32B\t\n\007_aint32B\n\n\010_astringB\t\n\007_abytesB\010"
+  "\n\006_aenum*\032\n\006MyEnum\022\007\n\003foo\020\000\022\007\n\003bar\020\001b\006pr"
+  "oto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_smurf_2eproto_deps[1] = {
   &::descriptor_table_validate_2fvalidate_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_smurf_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_smurf_2eproto = {
-    false, false, 590, descriptor_table_protodef_smurf_2eproto,
+    false, false, 644, descriptor_table_protodef_smurf_2eproto,
     "smurf.proto",
     &descriptor_table_smurf_2eproto_once, descriptor_table_smurf_2eproto_deps, 1, 2,
     schemas, file_default_instances, TableStruct_smurf_2eproto::offsets,
@@ -419,11 +424,16 @@ class Person::_Internal {
   static void set_has_aenum(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
+  static const ::examplepb::Person_Location& amsg(const Person* msg);
 };
 
 const ::examplepb::Person_Location&
 Person::_Internal::home(const Person* msg) {
   return *msg->_impl_.home_;
+}
+const ::examplepb::Person_Location&
+Person::_Internal::amsg(const Person* msg) {
+  return *msg->_impl_.amsg_;
 }
 Person::Person(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -440,6 +450,7 @@ Person::Person(const Person& from)
     , decltype(_impl_.astring_){}
     , decltype(_impl_.abytes_){}
     , decltype(_impl_.home_){nullptr}
+    , decltype(_impl_.amsg_){nullptr}
     , decltype(_impl_.id_){}
     , decltype(_impl_.auint64_){}
     , decltype(_impl_.aint64_){}
@@ -467,6 +478,9 @@ Person::Person(const Person& from)
   if (from._internal_has_home()) {
     _this->_impl_.home_ = new ::examplepb::Person_Location(*from._impl_.home_);
   }
+  if (from._internal_has_amsg()) {
+    _this->_impl_.amsg_ = new ::examplepb::Person_Location(*from._impl_.amsg_);
+  }
   ::memcpy(&_impl_.id_, &from._impl_.id_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.aenum_) -
     reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.aenum_));
@@ -483,6 +497,7 @@ inline void Person::SharedCtor(
     , decltype(_impl_.astring_){}
     , decltype(_impl_.abytes_){}
     , decltype(_impl_.home_){nullptr}
+    , decltype(_impl_.amsg_){nullptr}
     , decltype(_impl_.id_){uint64_t{0u}}
     , decltype(_impl_.auint64_){uint64_t{0u}}
     , decltype(_impl_.aint64_){int64_t{0}}
@@ -514,6 +529,7 @@ inline void Person::SharedDtor() {
   _impl_.astring_.Destroy();
   _impl_.abytes_.Destroy();
   if (this != internal_default_instance()) delete _impl_.home_;
+  if (this != internal_default_instance()) delete _impl_.amsg_;
 }
 
 void Person::SetCachedSize(int size) const {
@@ -539,6 +555,10 @@ void Person::Clear() {
     delete _impl_.home_;
   }
   _impl_.home_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.amsg_ != nullptr) {
+    delete _impl_.amsg_;
+  }
+  _impl_.amsg_ = nullptr;
   _impl_.id_ = uint64_t{0u};
   if (cached_has_bits & 0x0000007cu) {
     ::memset(&_impl_.auint64_, 0, static_cast<size_t>(
@@ -636,6 +656,14 @@ const char* Person::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
+      // .examplepb.Person.Location amsg = 12 [(.validate.rules) = {
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
+          ptr = ctx->ParseMessage(_internal_mutable_amsg(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -726,6 +754,13 @@ uint8_t* Person::_InternalSerialize(
       11, this->_internal_aenum(), target);
   }
 
+  // .examplepb.Person.Location amsg = 12 [(.validate.rules) = {
+  if (this->_internal_has_amsg()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(12, _Internal::amsg(this),
+        _Internal::amsg(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -764,6 +799,13 @@ size_t Person::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.home_);
+  }
+
+  // .examplepb.Person.Location amsg = 12 [(.validate.rules) = {
+  if (this->_internal_has_amsg()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.amsg_);
   }
 
   // uint64 id = 1 [(.validate.rules) = {
@@ -829,6 +871,10 @@ void Person::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBU
   if (from._internal_has_home()) {
     _this->_internal_mutable_home()->::examplepb::Person_Location::MergeFrom(
         from._internal_home());
+  }
+  if (from._internal_has_amsg()) {
+    _this->_internal_mutable_amsg()->::examplepb::Person_Location::MergeFrom(
+        from._internal_amsg());
   }
   if (from._internal_id() != 0) {
     _this->_internal_set_id(from._internal_id());
