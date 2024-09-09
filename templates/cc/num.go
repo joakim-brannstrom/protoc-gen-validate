@@ -1,6 +1,7 @@
 package cc
 
 const numTpl = `
+	{{ template "required" . }}
 	{{ if .Rules.GetIgnoreEmpty }}
 		if ({{ accessor . }} != 0) {
 	{{ end }}
