@@ -130,6 +130,8 @@ func (fns CCFuncs) methodName(name interface{}) string {
 		return "const_"
 	case "inline":
 		return "inline_"
+    case "co_await":
+        return "co_await_"
 	default:
 		return nameStr
 	}
