@@ -32,6 +32,7 @@ func RegisterModule(tpl *template.Template, params pgs.Parameters) {
 		"errCause":      fns.errCause,
 		"errIdx":        fns.errIdx,
 		"errIdxCause":   fns.errIdxCause,
+		"errUnimplemented": fns.errUnimplemented,
 		"hasAccessor":   fns.hasAccessor,
 		"inKey":         fns.inKey,
 		"inType":        fns.inType,
@@ -41,14 +42,15 @@ func RegisterModule(tpl *template.Template, params pgs.Parameters) {
 		"oneof":         fns.oneofTypeName,
 		"output":        fns.output,
 		"package":       fns.packageName,
+		"parent":        fns.parent,
 		"quote":         fns.quote,
 		"staticVarName": fns.staticVarName,
+		"topParent":     fns.topParent,
 		"tsGt":          fns.tsGt,
 		"tsLit":         fns.tsLit,
 		"tsStr":         fns.tsStr,
 		"typ":           fns.Type,
 		"unimplemented": fns.errUnimplemented,
-		"errUnimplemented": fns.errUnimplemented,
 		"unwrap":        fns.unwrap,
 	})
 	template.Must(tpl.Parse(moduleFileTpl))
@@ -135,6 +137,14 @@ func (fns CCFuncs) methodName(name interface{}) string {
 	default:
 		return nameStr
 	}
+}
+
+func (fns CCFuncs) topParent(ctx shared.RuleContext) string {
+    return "topParent"
+}
+
+func (fns CCFuncs) parent(ctx shared.RuleContext) string {
+    return "m"
 }
 
 func (fns CCFuncs) accessor(ctx shared.RuleContext) string {
