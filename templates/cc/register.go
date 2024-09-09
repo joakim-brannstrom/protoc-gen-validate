@@ -110,7 +110,13 @@ type CCFuncs struct{ pgsgo.Context }
 
 func CcFilePath(f pgs.File, ctx pgsgo.Context, tpl *template.Template) *pgs.FilePath {
 	out := pgs.FilePath(f.Name().String())
-	out = out.SetExt(".pb.validate." + tpl.Name())
+
+    ext := "hpp"
+    if tpl.Name() == "cc" {
+        ext = "cpp"
+    }
+
+    out = out.SetExt(".pb.validate." + ext)
 	return &out
 }
 
