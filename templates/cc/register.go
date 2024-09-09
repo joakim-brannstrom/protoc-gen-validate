@@ -47,7 +47,8 @@ func RegisterModule(tpl *template.Template, params pgs.Parameters) {
 		"tsLit":         fns.tsLit,
 		"tsStr":         fns.tsStr,
 		"typ":           fns.Type,
-		"unimplemented": fns.failUnimplemented,
+		"unimplemented": fns.errUnimplemented,
+		"errUnimplemented": fns.errUnimplemented,
 		"unwrap":        fns.unwrap,
 	})
 	template.Must(tpl.Parse(moduleFileTpl))
@@ -110,12 +111,10 @@ type CCFuncs struct{ pgsgo.Context }
 
 func CcFilePath(f pgs.File, ctx pgsgo.Context, tpl *template.Template) *pgs.FilePath {
 	out := pgs.FilePath(f.Name().String())
-
     ext := "hpp"
     if tpl.Name() == "cc" {
         ext = "cpp"
     }
-
     out = out.SetExt(".pb.validate." + ext)
 	return &out
 }
@@ -444,6 +443,14 @@ func (fns CCFuncs) failUnimplemented(message string) string {
 	}
 
 	return fmt.Sprintf(`throw pgv::UnimplementedException(%q);`, message)
+}
+
+func (fns CCFuncs) errUnimplemented(message string) string {
+	if len(message) == 0 {
+		return "#error unimplemented"
+	}
+
+	return fmt.Sprintf(`#error unimplemented %q`, message)
 }
 
 func (fns CCFuncs) staticVarName(msg pgs.Message) string {
