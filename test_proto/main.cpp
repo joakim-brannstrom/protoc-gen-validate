@@ -1,4 +1,4 @@
-#include "smurf.pb.validate.h"
+#include "smurf.pb.validate.hpp"
 #include <iostream>
 
 int main(int argc, char **argv) {
