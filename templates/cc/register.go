@@ -45,6 +45,7 @@ func RegisterModule(tpl *template.Template, params pgs.Parameters) {
 		"parent":        fns.parent,
 		"quote":         fns.quote,
 		"staticVarName": fns.staticVarName,
+		"topParent":     fns.topParent,
 		"tsGt":          fns.tsGt,
 		"tsLit":         fns.tsLit,
 		"tsStr":         fns.tsStr,
@@ -136,6 +137,10 @@ func (fns CCFuncs) methodName(name interface{}) string {
 	default:
 		return nameStr
 	}
+}
+
+func (fns CCFuncs) topParent(ctx shared.RuleContext) string {
+    return "topParent"
 }
 
 func (fns CCFuncs) parent(ctx shared.RuleContext) string {

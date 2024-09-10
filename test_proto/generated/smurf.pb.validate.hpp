@@ -18,17 +18,12 @@ namespace examplepb {
 using std::string;
 
 
-extern bool validate(const ::examplepb::Person& m);
-extern bool validate(const ::examplepb::Person& m, pgv::ValidationLog* err);
+extern bool validate(const ::examplepb::Person& m, pgv::ValidationLog* err = nullptr);
+extern bool validate(const google::protobuf::Message& topParent, const ::examplepb::Person& m, pgv::ValidationLog* err = nullptr);
 
-extern bool validate(const ::examplepb::Person_Location& m);
-extern bool validate(const ::examplepb::Person_Location& m, pgv::ValidationLog* err);
-
-
-} // namespace
+extern bool validate(const ::examplepb::Person_Location& m, pgv::ValidationLog* err = nullptr);
+extern bool validate(const google::protobuf::Message& topParent, const ::examplepb::Person_Location& m, pgv::ValidationLog* err = nullptr);
 
 
-#define X_EXAMPLEPB_SMURF(X) \
-X(::examplepb::Person) \
-X(::examplepb::Person_Location) \
+} // namespace examplepb
 

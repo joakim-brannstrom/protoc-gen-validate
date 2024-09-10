@@ -16,11 +16,10 @@ namespace validate {
 using std::string;
 
 pgv::Validator<::examplepb::Person> validator___examplepb__Person(
-    static_cast<bool (*)(const google::protobuf::Message&, const ::examplepb::Person&,
-                         pgv::ValidationLog*)>(::examplepb::validate));
+    static_cast<bool (*)(const ::examplepb::Person&, pgv::ValidationLog*)>(::examplepb::validate));
 pgv::Validator<::examplepb::Person_Location> validator___examplepb__Person_Location(
-    static_cast<bool (*)(const google::protobuf::Message&, const ::examplepb::Person_Location&,
-                         pgv::ValidationLog*)>(::examplepb::validate));
+    static_cast<bool (*)(const ::examplepb::Person_Location&, pgv::ValidationLog*)>(
+        ::examplepb::validate));
 
 } // namespace validate
 } // namespace pgv
@@ -36,15 +35,11 @@ const std::set<MyEnum> _Person_Aenum_InLookup = {
     MyEnum(0),
 };
 
-bool validate(const ::examplepb::Person& m, pgv::ValidationLog* err) { return validate(m, m, err); }
+bool validate(const ::examplepb::Person& m) { return validate(m, nullptr); }
 
-bool validate(const google::protobuf::Message& topParent, const ::examplepb::Person& m,
-              pgv::ValidationLog* err) {
+bool validate(const ::examplepb::Person& m, pgv::ValidationLog* err) {
     (void)m;
     (void)err;
-    if (err && !err->isActive()) {
-        err = nullptr;
-    }
 
     if (m.id() <= 999) {
         {
@@ -77,7 +72,7 @@ bool validate(const google::protobuf::Message& topParent, const ::examplepb::Per
     }
 
     {
-        if (m.has_home() && !pgv::BaseValidator::AbstractCheckMessage(topParent, m.home(), err)) {
+        if (m.has_home() && !pgv::BaseValidator::AbstractCheckMessage(m.home(), err)) {
             if (err) {
                 err->embedded();
             }
@@ -111,7 +106,7 @@ bool validate(const google::protobuf::Message& topParent, const ::examplepb::Per
         }
     }
 
-    if (m.has_amsg() && !pgv::BaseValidator::CustomCheckMessage(topParent, m, m.amsg(), err)) {
+    if (m.has_amsg() && !pgv::BaseValidator::CustomCheckMessage(m, m.amsg(), err)) {
         if (err) {
             err->embedded();
         }
@@ -348,17 +343,11 @@ bool validate(const google::protobuf::Message& topParent, const ::examplepb::Per
 // violated, the return value is false and an error message is written to the
 // input string argument.
 
-bool validate(const ::examplepb::Person_Location& m, pgv::ValidationLog* err) {
-    return validate(m, m, err);
-}
+bool validate(const ::examplepb::Person_Location& m) { return validate(m, nullptr); }
 
-bool validate(const google::protobuf::Message& topParent, const ::examplepb::Person_Location& m,
-              pgv::ValidationLog* err) {
+bool validate(const ::examplepb::Person_Location& m, pgv::ValidationLog* err) {
     (void)m;
     (void)err;
-    if (err && !err->isActive()) {
-        err = nullptr;
-    }
 
     if (m.lat() < -90 || m.lat() > 90) {
         {

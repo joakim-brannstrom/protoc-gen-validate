@@ -2,8 +2,8 @@ package cc
 
 const declTpl = `
 {{ if not (ignored .) -}}
-extern bool validate(const {{ class . }}& m);
-extern bool validate(const {{ class . }}& m, pgv::ValidationLog* err);
+extern bool validate(const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
+extern bool validate(const google::protobuf::Message& topParent, const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
 {{- end -}}
 `
 
@@ -120,16 +120,20 @@ const msgTpl = `
 
 {{ end }}{{ end }}
 
-bool validate(const {{ class . }}& m) {
-    return validate(m, nullptr);
+bool validate(const {{ class . }}& m, pgv::ValidationLog* err) {
+    return validate(m, m, err);
 }
 
-bool validate(const {{ class . }}& m, pgv::ValidationLog* err) {
+bool validate(const google::protobuf::Message& topParent, const {{ class . }}& m, pgv::ValidationLog* err) {
 	(void)m;
 	(void)err;
 {{- if disabled . }}
 	return true;
 {{ else -}}
+    if (err && !err->isActive()) {
+        err = nullptr;
+    }
+
 		{{ range .NonOneOfFields }}
 			{{- render (context .) -}}
 		{{ end -}}

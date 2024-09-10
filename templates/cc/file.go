@@ -21,7 +21,7 @@ using std::string;
 {{- if not (ignored .) -}}
 {{- if not (disabled .) -}}
 
-pgv::Validator<{{ class . }}> {{ staticVarName . }}(static_cast<bool(*)(const {{ class .}}&, pgv::ValidationLog*)>({{ package .}}::validate));
+pgv::Validator<{{ class . }}> {{ staticVarName . }}(static_cast<bool(*)(const google::protobuf::Message&, const {{ class .}}&, pgv::ValidationLog*)>({{ package .}}::validate));
 
 {{- end -}}
 {{ end }}
@@ -68,13 +68,6 @@ using std::string;
 {{ end }}
 
 {{ range .Package.ProtoName.SplitOnDot -}}
-} // namespace
-{{ end }}
-
-#define X_{{ .Package.ProtoName.ScreamingSnakeCase }}_{{ .File.InputPath.BaseName | screaming_snake_case }}(X) \
-{{ range .AllMessages -}}
-{{- if not (ignored .) -}}
-	X({{class . }}) \
-{{ end -}}
+} // namespace {{ . }}
 {{ end }}
 `
