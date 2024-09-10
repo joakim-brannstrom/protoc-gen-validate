@@ -1,7 +1,6 @@
 #pragma once
 
 #include <functional>
-#include <stdexcept>
 #include <string>
 #include <typeindex>
 #include <typeinfo>
@@ -11,13 +10,6 @@
 
 namespace pgv {
 using std::string;
-
-class UnimplementedException : public std::runtime_error {
-public:
-    UnimplementedException() : std::runtime_error("not yet implemented") {}
-    UnimplementedException(const std::string& message) : std::runtime_error(message) {}
-    // Thrown by C++ validation code that is not yet implemented.
-};
 
 using ValidationMsg = std::string;
 
