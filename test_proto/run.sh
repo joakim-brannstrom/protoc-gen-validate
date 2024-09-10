@@ -10,7 +10,7 @@ protoc --proto_path=. --cpp_out=generated --validate_out="lang=cc:./generated" s
 
 autoformat --no-backup generated/smurf.pb.validate.cpp
 
-diff generated/smurf.pb.validate.cpp generated/smurf.pb.validate_blipp3.cpp || true
+diff generated/smurf.pb.validate.cpp generated/smurf.pb.validate_blipp4.cpp || true
 
 time g++ -g -std=c++20 -o main main.cpp validate/validate.cpp generated/smurf.pb.cc generated/smurf.pb.validate.cpp generated/validate/validate.pb.cc -I generated/ -I .. -lprotobuf
 ./main
