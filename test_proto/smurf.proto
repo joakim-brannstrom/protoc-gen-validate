@@ -1,4 +1,5 @@
-syntax = "proto3";
+//syntax = "proto3";
+edition = "2023";
 
 package examplepb;
 
@@ -26,12 +27,12 @@ message Person {
     double lng = 2 [(validate.rules).double = {gte: -180, lte: 180}];
   }
 
-  optional uint64 auint64 = 5 [(validate.rules).uint64 = {gt: 999, required: true}];
-  optional int64 aint64 = 6 [(validate.rules).int64 = {gt: 999, required: true}];
-  optional uint32 auint32 = 7 [(validate.rules).uint32 = {gt: 999, required: true}];
-  optional int32 aint32 = 8 [(validate.rules).int32 = {gt: 999, required: true}];
-  optional string astring = 9 [(validate.rules).string = {max_bytes: 999, required: true}];
-  optional bytes abytes = 10 [(validate.rules).bytes = {max_len: 999, required: true}];
-  optional MyEnum aenum = 11 [(validate.rules).enum = {in: [0], required: true}];
+  uint64 auint64 = 5 [(validate.rules).uint64 = {gt: 999, required: true}];
+  int64 aint64 = 6 [(validate.rules).int64 = {gt: 999, required: true}];
+  uint32 auint32 = 7 [(validate.rules).uint32 = {gt: 999, required: true}];
+  int32 aint32 = 8 [(validate.rules).int32 = {gt: 999, required: true}];
+  string astring = 9 [(validate.rules).string = {max_bytes: 999, required: true}];
+  bytes abytes = 10 [(validate.rules).bytes = {max_len: 999, required: true}];
+  MyEnum aenum = 11 [(validate.rules).enum = {in: [0], required: true}];
   Location amsg = 12 [(validate.rules).message = {required: true, custom: true}];
 }
