@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"text/template"
 
-	pgs "github.com/lyft/protoc-gen-star/v2"
+	pgs "github.com/vaidehi-figma/protoc-gen-star"
 	"google.golang.org/protobuf/proto"
 
 	"github.com/envoyproxy/protoc-gen-validate/validate"

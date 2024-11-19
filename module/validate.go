@@ -4,8 +4,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	pgs "github.com/lyft/protoc-gen-star/v2"
-	pgsgo "github.com/lyft/protoc-gen-star/v2/lang/go"
+	pgs "github.com/vaidehi-figma/protoc-gen-star"
+	pgsgo "github.com/vaidehi-figma/protoc-gen-star/lang/go"
 
 	"github.com/envoyproxy/protoc-gen-validate/templates"
 	"github.com/envoyproxy/protoc-gen-validate/templates/java"

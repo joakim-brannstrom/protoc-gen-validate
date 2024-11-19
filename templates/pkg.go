@@ -3,8 +3,8 @@ package templates
 import (
 	"text/template"
 
-	pgs "github.com/lyft/protoc-gen-star/v2"
-	pgsgo "github.com/lyft/protoc-gen-star/v2/lang/go"
+	pgs "github.com/vaidehi-figma/protoc-gen-star"
+	pgsgo "github.com/vaidehi-figma/protoc-gen-star/lang/go"
 
 	"github.com/envoyproxy/protoc-gen-validate/templates/cc"
 	"github.com/envoyproxy/protoc-gen-validate/templates/ccnop"

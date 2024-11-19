@@ -6,7 +6,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	pgs "github.com/lyft/protoc-gen-star/v2"
+	pgs "github.com/vaidehi-figma/protoc-gen-star"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/durationpb"
 	"google.golang.org/protobuf/types/known/timestamppb"

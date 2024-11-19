@@ -3,7 +3,7 @@ package ccnop
 import (
 	"text/template"
 
-	pgs "github.com/lyft/protoc-gen-star/v2"
+	pgs "github.com/vaidehi-figma/protoc-gen-star"
 
 	"github.com/envoyproxy/protoc-gen-validate/templates/cc"
 )
