@@ -9,8 +9,8 @@ import (
 	"unicode"
 
 	"github.com/iancoleman/strcase"
-	pgs "github.com/lyft/protoc-gen-star/v2"
-	pgsgo "github.com/lyft/protoc-gen-star/v2/lang/go"
+	pgs "github.com/vaidehi-figma/protoc-gen-star"
+	pgsgo "github.com/vaidehi-figma/protoc-gen-star/lang/go"
 	"google.golang.org/protobuf/types/known/durationpb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
