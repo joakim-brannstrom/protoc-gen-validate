@@ -3,7 +3,7 @@ package shared
 import (
 	"text/template"
 
-	pgs "github.com/lyft/protoc-gen-star/v2"
+	pgs "github.com/vaidehi-figma/protoc-gen-star"
 )
 
 func RegisterFunctions(tpl *template.Template, params pgs.Parameters) {
