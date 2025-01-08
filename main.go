@@ -9,9 +9,14 @@ import (
 )
 
 func main() {
-	optional := uint64(pluginpb.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL)
+    supportedFeatures := uint64(pluginpb.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL) | uint64(pluginpb.CodeGeneratorResponse_FEATURE_SUPPORTS_EDITIONS)
+    minimumEdition := int32(2023)
+	maximumEdition := int32(2024)
 	pgs.
-		Init(pgs.DebugEnv("DEBUG_PGV"), pgs.SupportedFeatures(&optional)).
+		Init(pgs.DebugEnv("DEBUG_PGV"),
+            pgs.SupportedFeatures(&supportedFeatures),
+            pgs.MinimumEdition(&minimumEdition),
+            pgs.MaximumEdition(&maximumEdition)).
 		RegisterModule(module.Validator()).
 		RegisterPostProcessor(pgsgo.GoFmt()).
 		Render()
