@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"text/template"
 
-	pgs "github.com/vaidehi-figma/protoc-gen-star"
+	pgs "github.com/joakim-brannstrom/protoc-gen-star"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/envoyproxy/protoc-gen-validate/validate"
+	"github.com/joakim-brannstrom/protoc-gen-validate/validate"
 )
 
 type RuleContext struct {

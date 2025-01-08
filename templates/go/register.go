@@ -3,9 +3,9 @@ package golang
 import (
 	"text/template"
 
-	pgs "github.com/vaidehi-figma/protoc-gen-star"
+	pgs "github.com/joakim-brannstrom/protoc-gen-star"
 
-	"github.com/envoyproxy/protoc-gen-validate/templates/goshared"
+	"github.com/joakim-brannstrom/protoc-gen-validate/templates/goshared"
 )
 
 func Register(tpl *template.Template, params pgs.Parameters) {

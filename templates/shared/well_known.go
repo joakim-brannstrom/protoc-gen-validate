@@ -1,9 +1,9 @@
 package shared
 
 import (
-	pgs "github.com/vaidehi-figma/protoc-gen-star"
+	pgs "github.com/joakim-brannstrom/protoc-gen-star"
 
-	"github.com/envoyproxy/protoc-gen-validate/validate"
+	"github.com/joakim-brannstrom/protoc-gen-validate/validate"
 )
 
 type WellKnown string

@@ -8,12 +8,12 @@ import (
 	"text/template"
 
 	"github.com/iancoleman/strcase"
-	pgs "github.com/vaidehi-figma/protoc-gen-star"
-	pgsgo "github.com/vaidehi-figma/protoc-gen-star/lang/go"
+	pgs "github.com/joakim-brannstrom/protoc-gen-star"
+	pgsgo "github.com/joakim-brannstrom/protoc-gen-star/lang/go"
 	"google.golang.org/protobuf/types/known/durationpb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/envoyproxy/protoc-gen-validate/templates/shared"
+	"github.com/joakim-brannstrom/protoc-gen-validate/templates/shared"
 )
 
 func RegisterModule(tpl *template.Template, params pgs.Parameters) {

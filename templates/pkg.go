@@ -3,14 +3,14 @@ package templates
 import (
 	"text/template"
 
-	pgs "github.com/vaidehi-figma/protoc-gen-star"
-	pgsgo "github.com/vaidehi-figma/protoc-gen-star/lang/go"
+	pgs "github.com/joakim-brannstrom/protoc-gen-star"
+	pgsgo "github.com/joakim-brannstrom/protoc-gen-star/lang/go"
 
-	"github.com/envoyproxy/protoc-gen-validate/templates/cc"
-	"github.com/envoyproxy/protoc-gen-validate/templates/ccnop"
-	"github.com/envoyproxy/protoc-gen-validate/templates/go"
-	"github.com/envoyproxy/protoc-gen-validate/templates/java"
-	"github.com/envoyproxy/protoc-gen-validate/templates/shared"
+	"github.com/joakim-brannstrom/protoc-gen-validate/templates/cc"
+	"github.com/joakim-brannstrom/protoc-gen-validate/templates/ccnop"
+	"github.com/joakim-brannstrom/protoc-gen-validate/templates/go"
+	"github.com/joakim-brannstrom/protoc-gen-validate/templates/java"
+	"github.com/joakim-brannstrom/protoc-gen-validate/templates/shared"
 )
 
 type (

@@ -3,9 +3,9 @@ package ccnop
 import (
 	"text/template"
 
-	pgs "github.com/vaidehi-figma/protoc-gen-star"
+	pgs "github.com/joakim-brannstrom/protoc-gen-star"
 
-	"github.com/envoyproxy/protoc-gen-validate/templates/cc"
+	"github.com/joakim-brannstrom/protoc-gen-validate/templates/cc"
 )
 
 func RegisterModule(tpl *template.Template, params pgs.Parameters) {

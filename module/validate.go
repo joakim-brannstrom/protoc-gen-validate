@@ -4,11 +4,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	pgs "github.com/vaidehi-figma/protoc-gen-star"
-	pgsgo "github.com/vaidehi-figma/protoc-gen-star/lang/go"
+	pgs "github.com/joakim-brannstrom/protoc-gen-star"
+	pgsgo "github.com/joakim-brannstrom/protoc-gen-star/lang/go"
 
-	"github.com/envoyproxy/protoc-gen-validate/templates"
-	"github.com/envoyproxy/protoc-gen-validate/templates/java"
+	"github.com/joakim-brannstrom/protoc-gen-validate/templates"
+	"github.com/joakim-brannstrom/protoc-gen-validate/templates/java"
 )
 
 const (

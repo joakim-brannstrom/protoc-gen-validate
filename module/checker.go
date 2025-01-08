@@ -6,12 +6,12 @@ import (
 	"time"
 	"unicode/utf8"
 
-	pgs "github.com/vaidehi-figma/protoc-gen-star"
+	pgs "github.com/joakim-brannstrom/protoc-gen-star"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/durationpb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/envoyproxy/protoc-gen-validate/validate"
+	"github.com/joakim-brannstrom/protoc-gen-validate/validate"
 )
 
 var (
