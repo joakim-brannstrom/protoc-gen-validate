@@ -2,8 +2,8 @@ package cc
 
 const declTpl = `
 {{ if not (ignored .) -}}
-extern bool validate(const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
-extern bool validate(const google::protobuf::Message& topParent, const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
+bool validate(const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
+bool validate(const google::protobuf::Message& topParent, const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
 {{- end -}}
 `
 
