@@ -17,7 +17,8 @@ fi
 
 pushd test_proto
 mkdir -p generated
-$PROTOC_BIN  --proto_path=. --cpp_out=generated --validate_out="lang=cc:./generated" smurf.proto validate/validate.proto
+$PROTOC_BIN  --proto_path=. --cpp_out=generated --validate_out="lang=cc:./generated" smurf.proto
+#$PROTOC_BIN  --proto_path=. --cpp_out=generated --validate_out="lang=cc:./generated" validate/validate.proto
 
 autoformat --no-backup generated/smurf.pb.validate.cpp || true
 
