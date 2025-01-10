@@ -755,7 +755,7 @@ message EnumRules {
     repeated int32 not_in       = 4;
 
     // Required specifies that this field must be set
-    optional bool required = 5;
+    optional bool required      = 5;
 }
 
 // MessageRules describe the constraints applied to embedded message values.
@@ -768,7 +768,8 @@ message MessageRules {
     // Required specifies that this field must be set
     optional bool required = 2;
 
-    optional bool custom = 3;
+    // Call a user defined validate function for the message.
+    optional bool custom   = 3;
 }
 
 // RepeatedRules describe the constraints applied to `repeated` values
