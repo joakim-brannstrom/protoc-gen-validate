@@ -1,4 +1,4 @@
-#include "smurf.pb.validate.hpp"
+#include "smurf.pb.validate.h"
 #include <iostream>
 
 class BasicValidationLog : public pgv::ValidationLog {

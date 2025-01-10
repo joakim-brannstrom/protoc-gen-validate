@@ -28,7 +28,7 @@ for LIB in $(find "$PROTOBUF_LIB" -iname "lib*absl*.a"); do
     LIBS="$LIBS -l${P:3:-2}"
 done
 
-time g++ -g -std=c++20 -c main.cpp ../cpp/pgv/validate.cpp generated/smurf.pb.cc generated/smurf.pb.validate.cpp generated/validate/validate.pb.cc -I generated/ -I ../cpp -I "$PROTOBUF_SRC" -I ../protobuf/third_party/abseil-cpp
+time g++ -g -std=c++20 -c main.cpp ../cpp/pgv/validate.cpp generated/smurf.pb.cc generated/smurf.pb.validate.cc generated/validate/validate.pb.cc -I generated/ -I ../cpp -I "$PROTOBUF_SRC" -I ../protobuf/third_party/abseil-cpp
 
 time g++ -o main *.o -L $PROTOBUF_LIB -Wl,--start-group -lprotobuf -lutf8_range -lutf8_validity $LIBS -Wl,--end-group
 ./main
