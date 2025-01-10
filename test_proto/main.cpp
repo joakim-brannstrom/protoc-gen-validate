@@ -14,6 +14,10 @@ public:
         std::cout << v;
     }
 
+    void index(int i) override {
+        std::cout << "i=" << i;
+    }
+
     void done() override {
         std::cout << "\n";
     }

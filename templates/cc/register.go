@@ -223,10 +223,13 @@ func (fns CCFuncs) errIdxCause(ctx shared.RuleContext, idx, cause string, reason
 		fmt.Sprintf(`%q "." %s`,
 			errName, fns.lit(pgsgo.PGGUpperCamelCase(f.Name()))))
 
+	indexLog := ""
 	if idx != "" {
-		output = append(output, fmt.Sprintf(`"[" %s "]"`, idx))
+		output = append(output, fmt.Sprintf(`"[ %s ]"`, idx))
+		indexLog = fmt.Sprintf(`err->index(%s);`, idx)
 	} else if ctx.Index != "" {
-		output = append(output, fmt.Sprintf(`"[" %s "]"`, ctx.Index))
+		output = append(output, fmt.Sprintf(`"[ %s ]"`, ctx.Index))
+		indexLog = fmt.Sprintf(`err->index(%s);`, ctx.Index)
 	}
 
 	output = append(output, fmt.Sprintf(`": " %q`, fmt.Sprint(reason...)))
@@ -234,6 +237,7 @@ func (fns CCFuncs) errIdxCause(ctx shared.RuleContext, idx, cause string, reason
 	output = append(output,
         ";",
         "err->log(errMsg);",
+		indexLog,
         "err->done();",
         "}",
 		"return false;",

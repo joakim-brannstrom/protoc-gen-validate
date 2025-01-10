@@ -10,6 +10,8 @@ enum MyEnum {
     b = 1;
 }
 
+message Embedded {}
+
 message Person {
   uint64 id = 1 [(validate.rules).uint64.gt = 999];
 
@@ -34,4 +36,5 @@ message Person {
   bytes abytes = 10 [(validate.rules).bytes = {max_len: 999, required: true}];
   MyEnum aenum = 11 [(validate.rules).enum = {in: [0], required: true}];
   Location amsg = 12 [(validate.rules).message = {required: true, custom: true}];
+  repeated Embedded arepeated = 13 [(validate.rules).repeated = {max_items: 5}];
 }

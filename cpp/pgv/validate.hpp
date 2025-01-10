@@ -21,6 +21,9 @@ public:
     /// An embedded message is done with its error logging.
     virtual void embedded() = 0;
 
+    /// An index value in a repeated field.
+    virtual void index(int i) = 0;
+
     /// Compilation of an error message done.
     virtual void done() = 0;
 
