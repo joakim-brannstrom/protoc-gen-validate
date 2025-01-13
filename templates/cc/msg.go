@@ -2,8 +2,18 @@ package cc
 
 const declTpl = `
 {{ if not (ignored .) -}}
-bool validate(const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
-bool validate(const google::protobuf::Message& topParent, const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
+
+{{ if disabled . -}}
+/// Validate is disabled.
+/// @return Always return true.
+{{- else -}}
+/// Checks the field values against the rules defined in the proto definition.
+/// @return If any rules are violated return false and an error message is written to the logger
+[[nodiscard]] bool validate(const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
+
+/// @overload
+[[nodiscard]] bool validate(const google::protobuf::Message& topParent, const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
+{{- end -}}
 {{- end -}}
 `
 
@@ -12,7 +22,7 @@ const msgTpl = `
 {{ if disabled . -}}
 	{{ cmt "Validate is disabled for " (class .) ". This method will always return true." }}
 {{- else -}}
-	{{ cmt "Validate checks the field values on " (class .) " with the rules defined in the proto definition for this message. If any rules are violated, the return value is false and an error message is written to the input string argument." }}
+	{{ cmt "Validate checks on " (class .) "." }}
 {{- end -}}
 
 {{ range .Fields }}{{ with (context .) }}{{ $f := .Field }}

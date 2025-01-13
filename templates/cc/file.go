@@ -19,7 +19,7 @@ namespace pgv {
 namespace protobuf = google::protobuf;
 namespace protobuf_wkt = google::protobuf;
 
-namespace validate {
+namespace {
 using std::string;
 
 {{ range .AllMessages }}
@@ -70,4 +70,10 @@ using std::string;
 {{ range .Package.ProtoName.SplitOnDot -}}
 } // namespace {{ . }}
 {{ end }}
+
+namespace pgv {
+{{ range .Package.ProtoName.SplitOnDot -}}
+using {{ . }}::validate;
+{{ end }}
+}
 `

@@ -51,6 +51,6 @@ int main(int argc, char **argv) {
     person.mutable_amsg();
 
     BasicValidationLog log;
-    std::cout << examplepb::validate(person, &log) << "\n";
+    std::cout << pgv::validate(person, &log) << "\n";
     return 0;
 }
