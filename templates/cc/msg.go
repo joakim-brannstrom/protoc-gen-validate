@@ -8,10 +8,16 @@ const declTpl = `
 /// @return Always return true.
 {{- else -}}
 /// Checks the field values against the rules defined in the proto definition.
+/// @param m message to validate
+/// @param err called on validation violations
 /// @return If any rules are violated return false and an error message is written to the logger
 [[nodiscard]] bool validate(const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
 
-/// @overload
+/// Checks the field values against the rules defined in the proto definition.
+/// @param topParent root message of the embedded message m
+/// @param m message to validate
+/// @param err called on validation violations
+/// @return If any rules are violated return false and an error message is written to the logger
 [[nodiscard]] bool validate(const google::protobuf::Message& topParent, const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
 {{- end -}}
 {{- end -}}
