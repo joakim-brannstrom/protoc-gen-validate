@@ -37,4 +37,5 @@ message Person {
   MyEnum aenum = 11 [(validate.rules).enum = {in: [0], required: true}];
   Location amsg = 12 [(validate.rules).message = {required: true, custom: true}];
   repeated Embedded arepeated = 13 [(validate.rules).repeated = {max_items: 5}];
+  MyEnum class = 14 [(validate.rules).enum = {required: true}];
 }

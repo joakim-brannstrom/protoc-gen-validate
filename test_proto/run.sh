@@ -21,7 +21,8 @@ mkdir -p generated
 $PROTOC_BIN  --proto_path=. --cpp_out=generated --validate_out="lang=cc:./generated" smurf.proto
 $PROTOC_BIN  --proto_path=. --cpp_out=generated --validate_out="lang=cc:./generated" validate/validate.proto
 
-autoformat --no-backup generated/smurf.pb.validate.cpp || true
+FIXED=$(clang-format generated/smurf.pb.validate.cc)
+echo "$FIXED" > generated/smurf.pb.validate.cc
 
 LIBS=""
 for LIB in $(find "$PROTOBUF_LIB" -iname "lib*absl*.a"); do
