@@ -11,14 +11,14 @@ const declTpl = `
 /// @param m message to validate
 /// @param err called on validation violations
 /// @return If any rules are violated return false and an error message is written to the logger
-[[nodiscard]] bool validate(const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
+[[nodiscard]] bool validate(const {{ class_base . }}& m, pgv::ValidationLog* err = nullptr);
 
 /// Checks the field values against the rules defined in the proto definition.
 /// @param topParent root message of the embedded message m
 /// @param m message to validate
 /// @param err called on validation violations
 /// @return If any rules are violated return false and an error message is written to the logger
-[[nodiscard]] bool validate(const google::protobuf::Message& topParent, const {{ class . }}& m, pgv::ValidationLog* err = nullptr);
+[[nodiscard]] bool validate(const google::protobuf::Message& topParent, const {{ class_base . }}& m, pgv::ValidationLog* err = nullptr);
 {{- end -}}
 {{- end -}}
 `
@@ -136,11 +136,11 @@ const msgTpl = `
 
 {{ end }}{{ end }}
 
-bool validate(const {{ class . }}& m, pgv::ValidationLog* err) {
+bool validate(const {{ class_base . }}& m, pgv::ValidationLog* err) {
     return validate(m, m, err);
 }
 
-bool validate(const google::protobuf::Message& topParent, const {{ class . }}& m, pgv::ValidationLog* err) {
+bool validate(const google::protobuf::Message& topParent, const {{ class_base . }}& m, pgv::ValidationLog* err) {
 	(void)m;
 	(void)err;
 {{- if disabled . }}

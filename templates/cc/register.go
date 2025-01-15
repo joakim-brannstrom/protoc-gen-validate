@@ -23,6 +23,7 @@ func RegisterModule(tpl *template.Template, params pgs.Parameters) {
 		"accessor":      fns.accessor,
 		"byteStr":       fns.byteStr,
 		"class":         fns.className,
+		"class_base":    fns.classBaseName,
 		"cmt":           pgs.C80,
 		"ctype":         fns.cType,
 		"durGt":         fns.durGt,
@@ -100,6 +101,7 @@ func RegisterHeader(tpl *template.Template, params pgs.Parameters) {
 
 	tpl.Funcs(map[string]interface{}{
 		"class":                fns.className,
+		"class_base":           fns.classBaseName,
 		"output":               fns.output,
 		"package":              fns.packageName2,
 		"screaming_snake_case": strcase.ToScreamingSnake,
