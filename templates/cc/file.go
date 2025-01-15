@@ -72,8 +72,6 @@ using std::string;
 {{ end }}
 
 namespace pgv {
-{{ range .Package.ProtoName.SplitOnDot -}}
-using {{ . }}::validate;
-{{ end }}
+using {{ package .Package }}::validate;
 }
 `

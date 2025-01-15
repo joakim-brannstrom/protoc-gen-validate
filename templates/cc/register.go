@@ -101,6 +101,7 @@ func RegisterHeader(tpl *template.Template, params pgs.Parameters) {
 	tpl.Funcs(map[string]interface{}{
 		"class":                fns.className,
 		"output":               fns.output,
+		"package":              fns.packageName2,
 		"screaming_snake_case": strcase.ToScreamingSnake,
 	})
 
@@ -181,6 +182,10 @@ func (fns CCFuncs) className(ent childEntity) string {
 
 func (fns CCFuncs) packageName(msg pgs.Entity) string {
 	return "::" + strings.Join(msg.Package().ProtoName().SplitOnDot(), "::")
+}
+
+func (fns CCFuncs) packageName2(msg pgs.Package) string {
+	return "::" + strings.Join(msg.ProtoName().SplitOnDot(), "::")
 }
 
 func (fns CCFuncs) quote(s interface {
