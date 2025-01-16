@@ -13,6 +13,12 @@ if [[ -z "$PROTOBUF_LIB" ]]; then
     exit 1
 fi
 
+pushd validate
+rm -rf github.com
+protoc -I. --go_out=. validate.proto
+cp github.com/envoyproxy/protoc-gen-validate/validate/validate.pb.go validate.pb.go
+popd
+
 ./local_build.sh
 export PATH=$PWD:$PATH
 
@@ -24,11 +30,13 @@ $PROTOC_BIN  --proto_path=. --cpp_out=generated --validate_out="lang=cc:./genera
 FIXED=$(clang-format generated/smurf.pb.validate.cc)
 echo "$FIXED" > generated/smurf.pb.validate.cc
 
+set +x
 LIBS=""
 for LIB in $(find "$PROTOBUF_LIB" -iname "lib*absl*.a"); do
     P=$(basename $LIB)
     LIBS="$LIBS -l${P:3:-2}"
 done
+set -x
 
 time g++ -g -std=c++20 -c main.cpp ../cpp/pgv/validate.cpp generated/smurf.pb.cc generated/smurf.pb.validate.cc generated/validate/validate.pb.cc -I generated/ -I ../cpp -I "$PROTOBUF_SRC"
 

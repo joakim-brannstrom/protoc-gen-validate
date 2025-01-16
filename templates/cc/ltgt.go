@@ -1,6 +1,11 @@
 package cc
 
 const ltgtTpl = `{{ $f := .Field }}{{ $r := .Rules }}{{ $v := (accessor .) }}
+	| GteExpr is {{ $r.GteExpr }} |
+	| smurf {{ getGte $r }} |
+	{{ if getGte $r }}
+		{{ getGte $r }}
+	{{ end }}
 	{{ if $r.Lt }}
 		{{ if $r.Gt }}
 			{{  if gt $r.GetLt $r.GetGt }}
@@ -12,14 +17,14 @@ const ltgtTpl = `{{ $f := .Field }}{{ $r := .Rules }}{{ $v := (accessor .) }}
 					{{ err . "value must be outside range [" $r.GetLt ", " $r.GetGt "]" }}
 				}
 			{{ end }}
-		{{ else if $r.Gte }}
-			{{  if gt $r.GetLt $r.GetGte }}
-				if ({{ $v }} < {{ $r.Gte }} || {{ $v }} >= {{ $r.Lt }}) {
-					{{ err . "value must be inside range [" $r.GetGte ", " $r.GetLt ")" }}
+		{{ else if getGte $r }}
+			{{  if gt $r.GetLt getGte $r }}
+				if ({{ $v }} < {{ getGte $r }} || {{ $v }} >= {{ $r.Lt }}) {
+					{{ err . "value must be inside range [" getGte $r ", " $r.GetLt ")" }}
 				}
 			{{ else }}
-				if ({{ $v }} >= {{ $r.Lt }} && {{ $v }} < {{ $r.Gte }}) {
-					{{ err . "value must be outside range [" $r.GetLt ", " $r.GetGte ")" }}
+				if ({{ $v }} >= {{ $r.Lt }} && {{ $v }} < {{ getGte $r }}) {
+					{{ err . "value must be outside range [" $r.GetLt ", " getGte $r ")" }}
 				}
 			{{ end }}
 		{{ else }}
@@ -38,7 +43,7 @@ const ltgtTpl = `{{ $f := .Field }}{{ $r := .Rules }}{{ $v := (accessor .) }}
 					{{ err . "value must be outside range (" $r.GetLte ", " $r.GetGt "]" }}
 				}
 			{{ end }}
-		{{ else if $r.Gte }}
+		{{ else if getGte $r }}
 			{{ if gt $r.GetLte $r.GetGte }}
 				if ({{ $v }} < {{ $r.Gte }} || {{ $v }} > {{ $r.Lte }}) {
 					{{ err . "value must be inside range [" $r.GetGte ", " $r.GetLte "]" }}

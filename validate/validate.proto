@@ -102,6 +102,24 @@ message FloatRules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // DoubleRules describes the constraints applied to `double` values
@@ -141,6 +159,24 @@ message DoubleRules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // Int32Rules describes the constraints applied to `int32` values
@@ -180,6 +216,24 @@ message Int32Rules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // Int64Rules describes the constraints applied to `int64` values
@@ -219,6 +273,24 @@ message Int64Rules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // UInt32Rules describes the constraints applied to `uint32` values
@@ -258,6 +330,23 @@ message UInt32Rules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // UInt64Rules describes the constraints applied to `uint64` values
@@ -297,6 +386,23 @@ message UInt64Rules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // SInt32Rules describes the constraints applied to `sint32` values
@@ -336,6 +442,23 @@ message SInt32Rules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // SInt64Rules describes the constraints applied to `sint64` values
@@ -375,6 +498,23 @@ message SInt64Rules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // Fixed32Rules describes the constraints applied to `fixed32` values
@@ -414,6 +554,23 @@ message Fixed32Rules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // Fixed64Rules describes the constraints applied to `fixed64` values
@@ -453,6 +610,23 @@ message Fixed64Rules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // SFixed32Rules describes the constraints applied to `sfixed32` values
@@ -492,6 +666,23 @@ message SFixed32Rules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // SFixed64Rules describes the constraints applied to `sfixed64` values
@@ -531,6 +722,23 @@ message SFixed64Rules {
 
     // Required specifies that this field must be set
     optional bool required = 9;
+    // Lt specifies that this field must be less than the specified expression,
+    // exclusive
+    optional string lt_expr = 10;
+
+    // Lte specifies that this field must be less than or equal to the
+    // specified expression, inclusive
+    optional string lte_expr = 11;
+
+    // Gt specifies that this field must be greater than the specified expression,
+    // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
+    // range is reversed.
+    optional string gt_expr = 12;
+
+    // Gte specifies that this field must be greater than or equal to the
+    // specified expression, inclusive. If the value of Gte is larger than a
+    // specified Lt or Lte, the range is reversed.
+    optional string gte_expr = 13;
 }
 
 // BoolRules describes the constraints applied to `bool` values
