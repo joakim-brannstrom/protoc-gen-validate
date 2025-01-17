@@ -24,11 +24,23 @@ export PATH=$PWD:$PATH
 
 pushd test_proto
 mkdir -p generated
-$PROTOC_BIN  --proto_path=. --cpp_out=generated --validate_out="lang=cc:./generated" smurf.proto
 $PROTOC_BIN  --proto_path=. --cpp_out=generated --validate_out="lang=cc:./generated" validate/validate.proto
 
-FIXED=$(clang-format generated/smurf.pb.validate.cc)
-echo "$FIXED" > generated/smurf.pb.validate.cc
+for FILE in $(ls *.proto); do
+    $PROTOC_BIN  --proto_path=. --cpp_out=generated --validate_out="lang=cc:./generated" $FILE
+done
+for FILE in $(ls generated/*.validate.cc); do
+    clang-format $FILE > $FILE.tmp
+    mv $FILE.tmp $FILE
+done
+
+for FILE in $(ls generated/*.cc); do
+    time g++ -g -std=c++20 -o $FILE.o -c $FILE -I generated/ -I ../cpp -I "$PROTOBUF_SRC"
+done
+
+time g++ -g -std=c++20 -c ../cpp/pgv/validate.cpp -I ../cpp -I "$PROTOBUF_SRC"
+time g++ -g -std=c++20 -c generated/validate/validate.pb.cc -I generated/ -I ../cpp -I "$PROTOBUF_SRC"
+time g++ -g -std=c++20 -c main.cpp -I generated/ -I ../cpp -I "$PROTOBUF_SRC"
 
 set +x
 LIBS=""
@@ -38,8 +50,6 @@ for LIB in $(find "$PROTOBUF_LIB" -iname "lib*absl*.a"); do
 done
 set -x
 
-time g++ -g -std=c++20 -c main.cpp ../cpp/pgv/validate.cpp generated/smurf.pb.cc generated/smurf.pb.validate.cc generated/validate/validate.pb.cc -I generated/ -I ../cpp -I "$PROTOBUF_SRC"
-
-time g++ -o main *.o -L $PROTOBUF_LIB -Wl,--start-group -lprotobuf -lutf8_range -lutf8_validity $LIBS -Wl,--end-group
+time g++ -o main *.o generated/*.o -L $PROTOBUF_LIB -Wl,--start-group -lprotobuf -lutf8_range -lutf8_validity $LIBS -Wl,--end-group
 ./main
 popd

@@ -473,70 +473,70 @@ func (fns CCFuncs) getGte(x interface{}) string {
 		return ""
 	case *validate.Int32Rules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%d", obj.GetGte())
 		} else if obj.GteExpr != nil {
 			return fmt.Sprintf("%s", obj.GetGteExpr())
 		}
 		return ""
 	case *validate.Int64Rules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%d", obj.GetGte())
 		} else if obj.GteExpr != nil {
 			return fmt.Sprintf("%s", obj.GetGteExpr())
 		}
 		return ""
 	case *validate.UInt32Rules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%d", obj.GetGte())
 		} else if obj.GteExpr != nil {
 			return fmt.Sprintf("%s", obj.GetGteExpr())
 		}
 		return ""
 	case *validate.UInt64Rules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%d", obj.GetGte())
 		} else if obj.GteExpr != nil {
 			return fmt.Sprintf("%s", obj.GetGteExpr())
 		}
 		return ""
 	case *validate.SInt32Rules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%d", obj.GetGte())
 		} else if obj.GteExpr != nil {
 			return fmt.Sprintf("%s", obj.GetGteExpr())
 		}
 		return ""
 	case *validate.SInt64Rules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%d", obj.GetGte())
 		} else if obj.GteExpr != nil {
 			return fmt.Sprintf("%s", obj.GetGteExpr())
 		}
 		return ""
 	case *validate.Fixed32Rules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%d", obj.GetGte())
 		} else if obj.GteExpr != nil {
 			return fmt.Sprintf("%s", obj.GetGteExpr())
 		}
 		return ""
 	case *validate.Fixed64Rules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%d", obj.GetGte())
 		} else if obj.GteExpr != nil {
 			return fmt.Sprintf("%s", obj.GetGteExpr())
 		}
 		return ""
 	case *validate.SFixed32Rules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%d", obj.GetGte())
 		} else if obj.GteExpr != nil {
 			return fmt.Sprintf("%s", obj.GetGteExpr())
 		}
 		return ""
 	case *validate.SFixed64Rules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%d", obj.GetGte())
 		} else if obj.GteExpr != nil {
 			return fmt.Sprintf("%s", obj.GetGteExpr())
 		}

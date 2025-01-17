@@ -41,5 +41,4 @@ message Person {
   repeated Embedded arepeated = 15 [(validate.rules).repeated = {max_items: 5}];
   MyEnum class = 16 [(validate.rules).enum = {required: true}];
   double adouble = 17 [(validate.rules).double = {required:true, gte: 4}];
-  double adouble2 = 18 [(validate.rules).double = {gte_expr: "pi"}];
 }

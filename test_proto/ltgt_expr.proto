@@ -1,0 +1,65 @@
+edition = "2023";
+
+package ltgt;
+
+import "validate/validate.proto";
+
+message AllTypesGtExpr {
+  uint64 auint64 = 1        [(validate.rules).uint64 =      {gt_expr: "pgv::pi"}];
+  int64 aint64 = 2          [(validate.rules).int64 =       {gt_expr: "pgv::pi"}];
+  sint64 asint64 = 3        [(validate.rules).sint64 =      {gt_expr: "pgv::pi"}];
+  fixed64 afixed64 = 4      [(validate.rules).fixed64 =     {gt_expr: "pgv::pi"}];
+  sfixed64 asfixed64 = 5    [(validate.rules).sfixed64 =    {gt_expr: "pgv::pi"}];
+  uint32 auint32 = 6        [(validate.rules).uint32 =      {gt_expr: "pgv::pi"}];
+  int32 aint32 = 7          [(validate.rules).int32 =       {gt_expr: "pgv::pi"}];
+  sint32 asint32 = 8        [(validate.rules).sint32 =      {gt_expr: "pgv::pi"}];
+  fixed32 afixed32 = 9      [(validate.rules).fixed32 =     {gt_expr: "pgv::pi"}];
+  sfixed32 asfixed32 = 10   [(validate.rules).sfixed32 =    {gt_expr: "pgv::pi"}];
+  double adouble = 11       [(validate.rules).double =      {gt_expr: "pgv::pi"}];
+  float afloat = 12         [(validate.rules).float =       {gt_expr: "pgv::pi"}];
+}
+
+message AllTypesGteExpr {
+  uint64 auint64 = 1        [(validate.rules).uint64 =      {gte_expr: "pgv::pi"}];
+  int64 aint64 = 2          [(validate.rules).int64 =       {gte_expr: "pgv::pi"}];
+  sint64 asint64 = 3        [(validate.rules).sint64 =      {gte_expr: "pgv::pi"}];
+  fixed64 afixed64 = 4      [(validate.rules).fixed64 =     {gte_expr: "pgv::pi"}];
+  sfixed64 asfixed64 = 5    [(validate.rules).sfixed64 =    {gte_expr: "pgv::pi"}];
+  uint32 auint32 = 6        [(validate.rules).uint32 =      {gte_expr: "pgv::pi"}];
+  int32 aint32 = 7          [(validate.rules).int32 =       {gte_expr: "pgv::pi"}];
+  sint32 asint32 = 8        [(validate.rules).sint32 =      {gte_expr: "pgv::pi"}];
+  fixed32 afixed32 = 9      [(validate.rules).fixed32 =     {gte_expr: "pgv::pi"}];
+  sfixed32 asfixed32 = 10   [(validate.rules).sfixed32 =    {gte_expr: "pgv::pi"}];
+  double adouble = 11       [(validate.rules).double =      {gte_expr: "pgv::pi"}];
+  float afloat = 12         [(validate.rules).float =       {gte_expr: "pgv::pi"}];
+}
+
+message AllTypesLtExpr {
+  uint64 auint64 = 1        [(validate.rules).uint64 =      {lt_expr: "pgv::pi"}];
+  int64 aint64 = 2          [(validate.rules).int64 =       {lt_expr: "pgv::pi"}];
+  sint64 asint64 = 3        [(validate.rules).sint64 =      {lt_expr: "pgv::pi"}];
+  fixed64 afixed64 = 4      [(validate.rules).fixed64 =     {lt_expr: "pgv::pi"}];
+  sfixed64 asfixed64 = 5    [(validate.rules).sfixed64 =    {lt_expr: "pgv::pi"}];
+  uint32 auint32 = 6        [(validate.rules).uint32 =      {lt_expr: "pgv::pi"}];
+  int32 aint32 = 7          [(validate.rules).int32 =       {lt_expr: "pgv::pi"}];
+  sint32 asint32 = 8        [(validate.rules).sint32 =      {lt_expr: "pgv::pi"}];
+  fixed32 afixed32 = 9      [(validate.rules).fixed32 =     {lt_expr: "pgv::pi"}];
+  sfixed32 asfixed32 = 10   [(validate.rules).sfixed32 =    {lt_expr: "pgv::pi"}];
+  double adouble = 11       [(validate.rules).double =      {lt_expr: "pgv::pi"}];
+  float afloat = 12         [(validate.rules).float =       {lt_expr: "pgv::pi"}];
+}
+
+message AllTypesLteExpr {
+  uint64 auint64 = 1        [(validate.rules).uint64 =      {lte_expr: "pgv::pi"}];
+  int64 aint64 = 2          [(validate.rules).int64 =       {lte_expr: "pgv::pi"}];
+  sint64 asint64 = 3        [(validate.rules).sint64 =      {lte_expr: "pgv::pi"}];
+  fixed64 afixed64 = 4      [(validate.rules).fixed64 =     {lte_expr: "pgv::pi"}];
+  sfixed64 asfixed64 = 5    [(validate.rules).sfixed64 =    {lte_expr: "pgv::pi"}];
+  uint32 auint32 = 6        [(validate.rules).uint32 =      {lte_expr: "pgv::pi"}];
+  int32 aint32 = 7          [(validate.rules).int32 =       {lte_expr: "pgv::pi"}];
+  sint32 asint32 = 8        [(validate.rules).sint32 =      {lte_expr: "pgv::pi"}];
+  fixed32 afixed32 = 9      [(validate.rules).fixed32 =     {lte_expr: "pgv::pi"}];
+  sfixed32 asfixed32 = 10   [(validate.rules).sfixed32 =    {lte_expr: "pgv::pi"}];
+  double adouble = 11       [(validate.rules).double =      {lte_expr: "pgv::pi"}];
+  float afloat = 12         [(validate.rules).float =       {lte_expr: "pgv::pi"}];
+}
