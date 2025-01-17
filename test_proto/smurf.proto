@@ -1,7 +1,7 @@
 //syntax = "proto3";
 edition = "2023";
 
-package examplepb;
+package examplepb.inner;
 
 import "validate/validate.proto";
 
@@ -9,6 +9,8 @@ enum MyEnum {
     a = 0;
     b = 1;
 }
+
+message Embedded {}
 
 message Person {
   uint64 id = 1 [(validate.rules).uint64.gt = 999];
@@ -30,8 +32,14 @@ message Person {
   int64 aint64 = 6 [(validate.rules).int64 = {gt: 999, required: true}];
   uint32 auint32 = 7 [(validate.rules).uint32 = {gt: 999, required: true}];
   int32 aint32 = 8 [(validate.rules).int32 = {gt: 999, required: true}];
-  string astring = 9 [(validate.rules).string = {max_bytes: 999, required: true}];
-  bytes abytes = 10 [(validate.rules).bytes = {max_len: 999, required: true}];
-  MyEnum aenum = 11 [(validate.rules).enum = {in: [0], required: true}];
-  Location amsg = 12 [(validate.rules).message = {required: true, custom: true}];
+  fixed32 afixed32 = 9 [(validate.rules).fixed32 = {gt: 999, required: true}];
+  fixed64 afixed64 = 10 [(validate.rules).fixed64 = {gt: 999, required: true}];
+  string astring = 11 [(validate.rules).string = {max_bytes: 999, required: true}];
+  bytes abytes = 12 [(validate.rules).bytes = {max_len: 999, required: true}];
+  MyEnum aenum = 13 [(validate.rules).enum = {in: [0], required: true}];
+  Location amsg = 14 [(validate.rules).message = {required: true, custom: true}];
+  repeated Embedded arepeated = 15 [(validate.rules).repeated = {max_items: 5}];
+  MyEnum class = 16 [(validate.rules).enum = {required: true}];
+  double adouble = 17 [(validate.rules).double = {required:true, gte: 4}];
+  double adouble2 = 18 [(validate.rules).double = {gte_expr: "pi"}];
 }

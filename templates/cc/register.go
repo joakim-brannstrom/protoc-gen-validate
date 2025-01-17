@@ -14,6 +14,7 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 
 	"github.com/joakim-brannstrom/protoc-gen-validate/templates/shared"
+	"github.com/joakim-brannstrom/protoc-gen-validate/validate"
 )
 
 func RegisterModule(tpl *template.Template, params pgs.Parameters) {
@@ -23,6 +24,7 @@ func RegisterModule(tpl *template.Template, params pgs.Parameters) {
 		"accessor":      fns.accessor,
 		"byteStr":       fns.byteStr,
 		"class":         fns.className,
+		"class_base":    fns.classBaseName,
 		"cmt":           pgs.C80,
 		"ctype":         fns.cType,
 		"durGt":         fns.durGt,
@@ -33,6 +35,10 @@ func RegisterModule(tpl *template.Template, params pgs.Parameters) {
 		"errIdx":        fns.errIdx,
 		"errIdxCause":   fns.errIdxCause,
 		"errUnimplemented": fns.errUnimplemented,
+		"getGt":         fns.getGt,
+		"getGte":        fns.getGte,
+		"getLt":         fns.getLt,
+		"getLte":        fns.getLte,
 		"hasAccessor":   fns.hasAccessor,
 		"inKey":         fns.inKey,
 		"inType":        fns.inType,
@@ -100,7 +106,9 @@ func RegisterHeader(tpl *template.Template, params pgs.Parameters) {
 
 	tpl.Funcs(map[string]interface{}{
 		"class":                fns.className,
+		"class_base":           fns.classBaseName,
 		"output":               fns.output,
+		"package":              fns.packageName2,
 		"screaming_snake_case": strcase.ToScreamingSnake,
 	})
 
@@ -113,11 +121,7 @@ type CCFuncs struct{ pgsgo.Context }
 
 func CcFilePath(f pgs.File, ctx pgsgo.Context, tpl *template.Template) *pgs.FilePath {
 	out := pgs.FilePath(f.Name().String())
-    ext := "hpp"
-    if tpl.Name() == "cc" {
-        ext = "cpp"
-    }
-    out = out.SetExt(".pb.validate." + ext)
+	out = out.SetExt(".pb.validate." + tpl.Name())
 	return &out
 }
 
@@ -134,6 +138,8 @@ func (fns CCFuncs) methodName(name interface{}) string {
 		return "inline_"
     case "co_await":
         return "co_await_"
+	case "class":
+		return "class_"
 	default:
 		return nameStr
 	}
@@ -187,6 +193,10 @@ func (fns CCFuncs) packageName(msg pgs.Entity) string {
 	return "::" + strings.Join(msg.Package().ProtoName().SplitOnDot(), "::")
 }
 
+func (fns CCFuncs) packageName2(msg pgs.Package) string {
+	return "::" + strings.Join(msg.ProtoName().SplitOnDot(), "::")
+}
+
 func (fns CCFuncs) quote(s interface {
 	String() string
 },
@@ -223,10 +233,13 @@ func (fns CCFuncs) errIdxCause(ctx shared.RuleContext, idx, cause string, reason
 		fmt.Sprintf(`%q "." %s`,
 			errName, fns.lit(pgsgo.PGGUpperCamelCase(f.Name()))))
 
+	indexLog := ""
 	if idx != "" {
-		output = append(output, fmt.Sprintf(`"[" %s "]"`, idx))
+		output = append(output, fmt.Sprintf(`"[ %s ]"`, idx))
+		indexLog = fmt.Sprintf(`err->index(%s);`, idx)
 	} else if ctx.Index != "" {
-		output = append(output, fmt.Sprintf(`"[" %s "]"`, ctx.Index))
+		output = append(output, fmt.Sprintf(`"[ %s ]"`, ctx.Index))
+		indexLog = fmt.Sprintf(`err->index(%s);`, ctx.Index)
 	}
 
 	output = append(output, fmt.Sprintf(`": " %q`, fmt.Sprint(reason...)))
@@ -234,6 +247,7 @@ func (fns CCFuncs) errIdxCause(ctx shared.RuleContext, idx, cause string, reason
 	output = append(output,
         ";",
         "err->log(errMsg);",
+		indexLog,
         "err->done();",
         "}",
 		"return false;",
@@ -435,6 +449,108 @@ func (fns CCFuncs) tsGt(a, b *timestamppb.Timestamp) bool {
 func (fns CCFuncs) tsStr(ts *timestamppb.Timestamp) string {
 	t := ts.AsTime()
 	return t.String()
+}
+
+func (fns CCFuncs) getGt(msg interface{}) string {
+	return "foo"
+}
+
+func (fns CCFuncs) getGte(x interface{}) string {
+	switch obj := x.(type) {
+	case *validate.FloatRules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	case *validate.DoubleRules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	case *validate.Int32Rules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	case *validate.Int64Rules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	case *validate.UInt32Rules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	case *validate.UInt64Rules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	case *validate.SInt32Rules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	case *validate.SInt64Rules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	case *validate.Fixed32Rules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	case *validate.Fixed64Rules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	case *validate.SFixed32Rules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	case *validate.SFixed64Rules:
+		if obj.Gte != nil {
+			return fmt.Sprintf("%f", obj.GetGte())
+		} else if obj.GteExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGteExpr())
+		}
+		return ""
+	}
+	return ""
+}
+
+func (fns CCFuncs) getLt(msg interface{}) string {
+	return "foo"
+}
+
+func (fns CCFuncs) getLte(msg interface{}) string {
+	return "foo"
 }
 
 func (fns CCFuncs) unwrap(ctx shared.RuleContext, name string) (shared.RuleContext, error) {
