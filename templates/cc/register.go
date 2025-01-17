@@ -451,8 +451,94 @@ func (fns CCFuncs) tsStr(ts *timestamppb.Timestamp) string {
 	return t.String()
 }
 
-func (fns CCFuncs) getGt(msg interface{}) string {
-	return "foo"
+func (fns CCFuncs) getGt(x interface{}) string {
+	switch obj := x.(type) {
+	case *validate.FloatRules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%f", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	case *validate.DoubleRules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%f", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	case *validate.Int32Rules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%d", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	case *validate.Int64Rules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%d", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	case *validate.UInt32Rules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%d", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	case *validate.UInt64Rules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%d", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	case *validate.SInt32Rules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%d", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	case *validate.SInt64Rules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%d", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	case *validate.Fixed32Rules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%d", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	case *validate.Fixed64Rules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%d", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	case *validate.SFixed32Rules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%d", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	case *validate.SFixed64Rules:
+		if obj.Gt != nil {
+			return fmt.Sprintf("%d", obj.GetGt())
+		} else if obj.GtExpr != nil {
+			return fmt.Sprintf("%s", obj.GetGtExpr())
+		}
+		return ""
+	}
+	return ""
 }
 
 func (fns CCFuncs) getGte(x interface{}) string {

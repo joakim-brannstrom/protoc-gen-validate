@@ -7,13 +7,13 @@ const ltgtTpl = `{{ $f := .Field }}{{ $r := .Rules }}{{ $v := (accessor .) }}
 	//	{{ getGte $r }}
 	//{{ end }}
 	{{ if $r.Lt }}
-		{{ if $r.Gt }}
-            if ({{ $v }} <= {{ $r.Gt }} || {{ $v }} >= {{ $r.Lt }}) {
-                {{ err . "value must be inside range (" $r.GetGt ", " $r.GetLt ")" }}
+		{{ if getGt $r }}
+            if ({{ $v }} <= {{ getGt $r }} || {{ $v }} >= {{ $r.Lt }}) {
+                {{ err . "value must be inside range (" (getGt $r) ", " $r.GetLt ")" }}
             }
 		{{ else if getGte $r }}
             if ({{ $v }} < {{ getGte $r }} || {{ $v }} >= {{ $r.Lt }}) {
-                {{ err . "value must be inside range [" getGte $r ", " $r.GetLt ")" }}
+                {{ err . "value must be inside range [" (getGte $r) ", " $r.GetLt ")" }}
             }
 		{{ else }}
 			if ({{ accessor . }} >= {{ $r.Lt }}) {
@@ -21,22 +21,22 @@ const ltgtTpl = `{{ $f := .Field }}{{ $r := .Rules }}{{ $v := (accessor .) }}
 			}
 		{{ end }}
 	{{ else if $r.Lte }}
-		{{ if $r.Gt }}
-            if ({{ $v }} <= {{ $r.Gt }} || {{ $v }} > {{ $r.Lte }}) {
-                {{ err . "value must be inside range (" $r.GetGt ", " $r.GetLte "]" }}
+		{{ if getGt $r }}
+            if ({{ $v }} <= {{ getGt $r }} || {{ $v }} > {{ $r.Lte }}) {
+                {{ err . "value must be inside range (" (getGt $r) ", " $r.GetLte "]" }}
             }
 		{{ else if getGte $r }}
-            if ({{ $v }} < {{ $r.Gte }} || {{ $v }} > {{ $r.Lte }}) {
-                {{ err . "value must be inside range [" $r.GetGte ", " $r.GetLte "]" }}
+            if ({{ $v }} < {{ getGte $r }} || {{ $v }} > {{ $r.Lte }}) {
+                {{ err . "value must be inside range [" (getGte $r) ", " $r.GetLte "]" }}
             }
 		{{ else }}
 			if ({{ accessor . }} > {{ $r.Lte }}) {
 				{{ err . "value must be less than or equal to " $r.GetLte }}
 			}
 		{{ end }}
-	{{ else if $r.Gt }}
-		if ({{ accessor . }} <= {{ $r.Gt }}) {
-			{{ err . "value must be greater than " $r.GetGt }}
+	{{ else if getGt $r }}
+		if ({{ accessor . }} <= {{ getGt $r }}) {
+			{{ err . "value must be greater than " (getGt $r) }}
 		}
 	{{ else if getGte $r }}
 		if ({{ accessor . }} < {{ getGte $r }}) {
