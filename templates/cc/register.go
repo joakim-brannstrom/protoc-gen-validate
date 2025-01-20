@@ -456,85 +456,85 @@ func (fns CCFuncs) getGt(x interface{}) string {
 	case *validate.FloatRules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%f", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.DoubleRules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%f", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.Int32Rules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%d", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.Int64Rules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%d", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.UInt32Rules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%d", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.UInt64Rules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%d", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.SInt32Rules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%d", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.SInt64Rules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%d", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.Fixed32Rules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%d", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.Fixed64Rules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%d", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.SFixed32Rules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%d", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.SFixed64Rules:
 		if obj.Gt != nil {
 			return fmt.Sprintf("%d", obj.GetGt())
-		} else if obj.GtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGtExpr())
+		} else if obj.GtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGtCpp())
 		}
 		return ""
 	}
@@ -546,85 +546,85 @@ func (fns CCFuncs) getGte(x interface{}) string {
 	case *validate.FloatRules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%f", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.DoubleRules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%f", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.Int32Rules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%d", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.Int64Rules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%d", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.UInt32Rules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%d", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.UInt64Rules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%d", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.SInt32Rules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%d", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.SInt64Rules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%d", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.Fixed32Rules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%d", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.Fixed64Rules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%d", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.SFixed32Rules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%d", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.SFixed64Rules:
 		if obj.Gte != nil {
 			return fmt.Sprintf("%d", obj.GetGte())
-		} else if obj.GteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetGteExpr())
+		} else if obj.GteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetGteCpp())
 		}
 		return ""
 	}
@@ -636,85 +636,85 @@ func (fns CCFuncs) getLt(x interface{}) string {
 	case *validate.FloatRules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%f", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.DoubleRules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%f", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.Int32Rules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%d", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.Int64Rules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%d", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.UInt32Rules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%d", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.UInt64Rules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%d", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.SInt32Rules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%d", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.SInt64Rules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%d", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.Fixed32Rules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%d", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.Fixed64Rules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%d", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.SFixed32Rules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%d", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.SFixed64Rules:
 		if obj.Lt != nil {
 			return fmt.Sprintf("%d", obj.GetLt())
-		} else if obj.LtExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLtExpr())
+		} else if obj.LtCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLtCpp())
 		}
 		return ""
 	}
@@ -726,85 +726,85 @@ func (fns CCFuncs) getLte(x interface{}) string {
 	case *validate.FloatRules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%f", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.DoubleRules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%f", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.Int32Rules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%d", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.Int64Rules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%d", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.UInt32Rules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%d", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.UInt64Rules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%d", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.SInt32Rules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%d", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.SInt64Rules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%d", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.Fixed32Rules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%d", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.Fixed64Rules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%d", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.SFixed32Rules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%d", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.SFixed64Rules:
 		if obj.Lte != nil {
 			return fmt.Sprintf("%d", obj.GetLte())
-		} else if obj.LteExpr != nil {
-			return fmt.Sprintf("%s", obj.GetLteExpr())
+		} else if obj.LteCpp != nil {
+			return fmt.Sprintf("%s", obj.GetLteCpp())
 		}
 		return ""
 	}

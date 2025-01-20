@@ -41,6 +41,8 @@ pgv::Validator<{{ class . }}> {{ staticVarName . }}(static_cast<bool(*)(const go
 namespace {{ . }} {
 {{- end }}
 
+using namespace pgv::constants;
+
 {{ range .AllMessages }}
 	{{- template "msg" . }}
 {{ end }}

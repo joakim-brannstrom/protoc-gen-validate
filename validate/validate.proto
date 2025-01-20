@@ -105,21 +105,21 @@ message FloatRules {
 
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // DoubleRules describes the constraints applied to `double` values
@@ -162,21 +162,21 @@ message DoubleRules {
 
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // Int32Rules describes the constraints applied to `int32` values
@@ -219,21 +219,21 @@ message Int32Rules {
 
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // Int64Rules describes the constraints applied to `int64` values
@@ -276,21 +276,21 @@ message Int64Rules {
 
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // UInt32Rules describes the constraints applied to `uint32` values
@@ -332,21 +332,21 @@ message UInt32Rules {
     optional bool required = 9;
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // UInt64Rules describes the constraints applied to `uint64` values
@@ -388,21 +388,21 @@ message UInt64Rules {
     optional bool required = 9;
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // SInt32Rules describes the constraints applied to `sint32` values
@@ -444,21 +444,21 @@ message SInt32Rules {
     optional bool required = 9;
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // SInt64Rules describes the constraints applied to `sint64` values
@@ -500,21 +500,21 @@ message SInt64Rules {
     optional bool required = 9;
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // Fixed32Rules describes the constraints applied to `fixed32` values
@@ -556,21 +556,21 @@ message Fixed32Rules {
     optional bool required = 9;
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // Fixed64Rules describes the constraints applied to `fixed64` values
@@ -612,21 +612,21 @@ message Fixed64Rules {
     optional bool required = 9;
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // SFixed32Rules describes the constraints applied to `sfixed32` values
@@ -668,21 +668,21 @@ message SFixed32Rules {
     optional bool required = 9;
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // SFixed64Rules describes the constraints applied to `sfixed64` values
@@ -724,21 +724,21 @@ message SFixed64Rules {
     optional bool required = 9;
     // Lt specifies that this field must be less than the specified expression,
     // exclusive
-    optional string lt_expr = 10;
+    optional string lt_cpp = 10;
 
     // Lte specifies that this field must be less than or equal to the
     // specified expression, inclusive
-    optional string lte_expr = 11;
+    optional string lte_cpp = 11;
 
     // Gt specifies that this field must be greater than the specified expression,
     // exclusive. If the value of Gt is larger than a specified Lt or Lte, the
     // range is reversed.
-    optional string gt_expr = 12;
+    optional string gt_cpp = 12;
 
     // Gte specifies that this field must be greater than or equal to the
     // specified expression, inclusive. If the value of Gte is larger than a
     // specified Lt or Lte, the range is reversed.
-    optional string gte_expr = 13;
+    optional string gte_cpp = 13;
 }
 
 // BoolRules describes the constraints applied to `bool` values
