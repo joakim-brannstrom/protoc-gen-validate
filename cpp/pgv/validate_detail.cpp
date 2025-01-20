@@ -2,7 +2,7 @@
  * This file is licensed under the Apache License, Version 2.0.
  * See http://www.apache.org/licenses/LICENSE-2.0 for details.
  */
- 
+
 #include "pgv/validate.hpp"
 
 namespace pgv {
@@ -60,7 +60,7 @@ int UTF8FirstLetterNumBytes(const char* utf8_str, int str_len) {
     return OneCharLen(utf8_str);
 }
 
-size_t Utf8Len(const string& narrow_string) {
+size_t Utf8Len(const std::string& narrow_string) {
     const char* str_char = narrow_string.c_str();
     ptrdiff_t byte_len = narrow_string.length();
     size_t unicode_len = 0;

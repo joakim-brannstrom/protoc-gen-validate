@@ -13,10 +13,6 @@
 #include "google/protobuf/message.h"
 
 namespace pgv {
-using std::string;
-
-using ValidationMsg = std::string;
-
 class ValidationLog {
 public:
     /// Called one or more times to build up an error message.
@@ -53,9 +49,11 @@ public:
     /**
      * Validate/check a generic message object with a custom registered validator
      * for the concrete message type.
-     * @param m supplies the parent message to check.
+     * If err is the nullptr then no logging when validation rule is violated is done.
+     * @param topParent supplies the top parent of message m.
+     * @param parent supplies the direct parent message of message m.
      * @param m supplies the message to check.
-     * @param err supplies the place to return error information.
+     * @param err supplies the place to return error information, can be nullptr.
      * @return true if the validation passes OR there is no registered validator for the concrete
      *         message type. false is returned if validation explicitly fails.
      */

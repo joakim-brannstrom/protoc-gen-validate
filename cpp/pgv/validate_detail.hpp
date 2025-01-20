@@ -14,10 +14,6 @@
 #include "pgv/validate.hpp"
 
 namespace pgv {
-using std::string;
-
-using ValidationMsg = std::string;
-
 template <typename T> class Validator : public BaseValidator {
 public:
     Validator(
@@ -36,23 +32,23 @@ private:
         check_;
 };
 
-static inline std::string String(const ValidationMsg& msg) { return std::string(msg); }
+static inline std::string String(const std::string& msg) { return std::string(msg); }
 
-static inline bool IsPrefix(const string& maybe_prefix, const string& search_in) {
+static inline bool IsPrefix(const std::string& maybe_prefix, const std::string& search_in) {
     return search_in.compare(0, maybe_prefix.size(), maybe_prefix) == 0;
 }
 
-static inline bool IsSuffix(const string& maybe_suffix, const string& search_in) {
+static inline bool IsSuffix(const std::string& maybe_suffix, const std::string& search_in) {
     return maybe_suffix.size() <= search_in.size() &&
            search_in.compare(search_in.size() - maybe_suffix.size(), maybe_suffix.size(),
                              maybe_suffix) == 0;
 }
 
-static inline bool Contains(const string& search_in, const string& to_find) {
-    return search_in.find(to_find) != string::npos;
+static inline bool Contains(const std::string& search_in, const std::string& to_find) {
+    return search_in.find(to_find) != std::string::npos;
 }
 
-static inline bool NotContains(const string& search_in, const string& to_find) {
+static inline bool NotContains(const std::string& search_in, const std::string& to_find) {
     return !Contains(search_in, to_find);
 }
 
@@ -60,6 +56,6 @@ int OneCharLen(const char* src);
 
 int UTF8FirstLetterNumBytes(const char* utf8_str, int str_len);
 
-size_t Utf8Len(const string& narrow_string);
+size_t Utf8Len(const std::string& narrow_string);
 
 } // namespace pgv
