@@ -15,8 +15,8 @@ message AllTypesGt {
   sint32 asint32 = 8        [(validate.rules).sint32 =      {gt: 999}];
   fixed32 afixed32 = 9      [(validate.rules).fixed32 =     {gt: 999}];
   sfixed32 asfixed32 = 10   [(validate.rules).sfixed32 =    {gt: 999}];
-  double adouble = 11       [(validate.rules).double =      {gt: 999}];
-  float afloat = 12         [(validate.rules).float =       {gt: 999}];
+  double adouble = 11       [(validate.rules).double =      {gt: 999.12345678}];
+  float afloat = 12         [(validate.rules).float =       {gt: 999.12345678}];
 }
 
 message AllTypesGte {
@@ -30,8 +30,8 @@ message AllTypesGte {
   sint32 asint32 = 8        [(validate.rules).sint32 =      {gte: 999}];
   fixed32 afixed32 = 9      [(validate.rules).fixed32 =     {gte: 999}];
   sfixed32 asfixed32 = 10   [(validate.rules).sfixed32 =    {gte: 999}];
-  double adouble = 11       [(validate.rules).double =      {gte: 999}];
-  float afloat = 12         [(validate.rules).float =       {gte: 999}];
+  double adouble = 11       [(validate.rules).double =      {gte: 999.12345678}];
+  float afloat = 12         [(validate.rules).float =       {gte: 999.12345678}];
 }
 
 message AllTypesLt {
@@ -45,8 +45,8 @@ message AllTypesLt {
   sint32 asint32 = 8        [(validate.rules).sint32 =      {lt: 999}];
   fixed32 afixed32 = 9      [(validate.rules).fixed32 =     {lt: 999}];
   sfixed32 asfixed32 = 10   [(validate.rules).sfixed32 =    {lt: 999}];
-  double adouble = 11       [(validate.rules).double =      {lt: 999}];
-  float afloat = 12         [(validate.rules).float =       {lt: 999}];
+  double adouble = 11       [(validate.rules).double =      {lt: 999.12345678}];
+  float afloat = 12         [(validate.rules).float =       {lt: 999.12345678}];
 }
 
 message AllTypesLte {
@@ -60,6 +60,6 @@ message AllTypesLte {
   sint32 asint32 = 8        [(validate.rules).sint32 =      {lte: 999}];
   fixed32 afixed32 = 9      [(validate.rules).fixed32 =     {lte: 999}];
   sfixed32 asfixed32 = 10   [(validate.rules).sfixed32 =    {lte: 999}];
-  double adouble = 11       [(validate.rules).double =      {lte: 999}];
-  float afloat = 12         [(validate.rules).float =       {lte: 999}];
+  double adouble = 11       [(validate.rules).double =      {lte: 999.12345678}];
+  float afloat = 12         [(validate.rules).float =       {lte: 999.12345678}];
 }

@@ -455,14 +455,14 @@ func (fns CCFuncs) getGt(x interface{}) string {
 	switch obj := x.(type) {
 	case *validate.FloatRules:
 		if obj.Gt != nil {
-			return fmt.Sprintf("%f", obj.GetGt())
+			return fmt.Sprintf("%.7g", obj.GetGt())
 		} else if obj.GtCpp != nil {
 			return fmt.Sprintf("(%s)", obj.GetGtCpp())
 		}
 		return ""
 	case *validate.DoubleRules:
 		if obj.Gt != nil {
-			return fmt.Sprintf("%f", obj.GetGt())
+			return fmt.Sprintf("%.17g", obj.GetGt())
 		} else if obj.GtCpp != nil {
 			return fmt.Sprintf("(%s)", obj.GetGtCpp())
 		}
@@ -545,14 +545,14 @@ func (fns CCFuncs) getGte(x interface{}) string {
 	switch obj := x.(type) {
 	case *validate.FloatRules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%.7g", obj.GetGte())
 		} else if obj.GteCpp != nil {
 			return fmt.Sprintf("(%s)", obj.GetGteCpp())
 		}
 		return ""
 	case *validate.DoubleRules:
 		if obj.Gte != nil {
-			return fmt.Sprintf("%f", obj.GetGte())
+			return fmt.Sprintf("%.17g", obj.GetGte())
 		} else if obj.GteCpp != nil {
 			return fmt.Sprintf("(%s)", obj.GetGteCpp())
 		}
@@ -635,14 +635,14 @@ func (fns CCFuncs) getLt(x interface{}) string {
 	switch obj := x.(type) {
 	case *validate.FloatRules:
 		if obj.Lt != nil {
-			return fmt.Sprintf("%f", obj.GetLt())
+			return fmt.Sprintf("%.7g", obj.GetLt())
 		} else if obj.LtCpp != nil {
 			return fmt.Sprintf("(%s)", obj.GetLtCpp())
 		}
 		return ""
 	case *validate.DoubleRules:
 		if obj.Lt != nil {
-			return fmt.Sprintf("%f", obj.GetLt())
+			return fmt.Sprintf("%.17g", obj.GetLt())
 		} else if obj.LtCpp != nil {
 			return fmt.Sprintf("(%s)", obj.GetLtCpp())
 		}
@@ -725,14 +725,14 @@ func (fns CCFuncs) getLte(x interface{}) string {
 	switch obj := x.(type) {
 	case *validate.FloatRules:
 		if obj.Lte != nil {
-			return fmt.Sprintf("%f", obj.GetLte())
+			return fmt.Sprintf("%.7g", obj.GetLte())
 		} else if obj.LteCpp != nil {
 			return fmt.Sprintf("(%s)", obj.GetLteCpp())
 		}
 		return ""
 	case *validate.DoubleRules:
 		if obj.Lte != nil {
-			return fmt.Sprintf("%f", obj.GetLte())
+			return fmt.Sprintf("%.17g", obj.GetLte())
 		} else if obj.LteCpp != nil {
 			return fmt.Sprintf("(%s)", obj.GetLteCpp())
 		}
