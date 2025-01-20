@@ -35,17 +35,15 @@ private:
 static inline std::string String(const std::string& msg) { return std::string(msg); }
 
 static inline bool IsPrefix(const std::string& maybe_prefix, const std::string& search_in) {
-    return search_in.compare(0, maybe_prefix.size(), maybe_prefix) == 0;
+    return search_in.starts_with(maybe_prefix);
 }
 
 static inline bool IsSuffix(const std::string& maybe_suffix, const std::string& search_in) {
-    return maybe_suffix.size() <= search_in.size() &&
-           search_in.compare(search_in.size() - maybe_suffix.size(), maybe_suffix.size(),
-                             maybe_suffix) == 0;
+    return search_in.ends_with(maybe_suffix);
 }
 
 static inline bool Contains(const std::string& search_in, const std::string& to_find) {
-    return search_in.find(to_find) != std::string::npos;
+    return search_in.contains(to_find);
 }
 
 static inline bool NotContains(const std::string& search_in, const std::string& to_find) {
