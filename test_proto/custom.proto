@@ -1,0 +1,14 @@
+edition = "2023";
+
+package custom;
+
+import "validate/validate.proto";
+
+message Outside {
+    option (validate.custom_register) = true;
+    int32 aint = 1 [(validate.rules).int32 = {gt: 999}];
+}
+
+message Inside {
+    int32 aint = 1 [(validate.rules).int32 = {gt: 999}];
+}

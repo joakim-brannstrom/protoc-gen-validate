@@ -13,11 +13,11 @@ if [[ -z "$PROTOBUF_LIB" ]]; then
     exit 1
 fi
 
-#pushd validate
-#rm -rf github.com
-#$PROTOC_BIN -I. --go_out=. validate.proto
-#cp github.com/envoyproxy/protoc-gen-validate/validate/validate.pb.go validate.pb.go
-#popd
+pushd validate
+rm -rf github.com
+$PROTOC_BIN -I. --go_out=. validate.proto
+cp github.com/envoyproxy/protoc-gen-validate/validate/validate.pb.go validate.pb.go
+popd
 
 ./local_build.sh
 export PATH=$PWD:$PATH

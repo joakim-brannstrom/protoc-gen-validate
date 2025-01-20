@@ -23,3 +23,9 @@ func RequiredOneOf(oo pgs.OneOf) (required bool, err error) {
 	_, err = oo.Extension(validate.E_Required, &required)
 	return
 }
+
+
+func CustomRegister(msg pgs.Message) (custom_register bool, err error) {
+	_, err = msg.Extension(validate.E_CustomRegister, &custom_register)
+    return
+}

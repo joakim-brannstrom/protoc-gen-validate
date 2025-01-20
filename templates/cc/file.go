@@ -28,10 +28,12 @@ using std::string;
 {{ range .AllMessages }}
 {{- if not (ignored .) -}}
 {{- if not (disabled .) -}}
+{{- if not (custom_register .) -}}
 
 pgv::Validator<{{ class . }}> {{ staticVarName . }}(static_cast<bool(*)(const google::protobuf::Message&, const {{ class .}}&, pgv::ValidationLog*)>({{ package .}}::validate));
 
 {{- end -}}
+{{ end }}
 {{ end }}
 {{ end }}
 
