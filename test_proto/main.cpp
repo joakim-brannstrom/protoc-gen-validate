@@ -1,4 +1,6 @@
 #include "smurf.pb.validate.h"
+#include "custom.pb.validate.h"
+#include "custom.pb.custom.validate.h"
 #include <iostream>
 
 class BasicValidationLog : public pgv::ValidationLog {
@@ -44,13 +46,19 @@ bool customCheck(const google::protobuf::Message& topParent_, const google::prot
 pgv::CustomValidator<examplepb::inner::Person::Location> registerCustomCheck(&customCheck);
 
 int main(int argc, char **argv) {
-    examplepb::inner::Person person;
-    person.set_id(1000);
-    person.mutable_home()->set_lat(10.0);
-    person.mutable_home()->set_lng(-1000.0);
-    person.mutable_amsg();
-
     BasicValidationLog log;
-    std::cout << pgv::validate(person, &log) << "\n";
+    {
+        examplepb::inner::Person person;
+        person.set_id(1000);
+        person.mutable_home()->set_lat(10.0);
+        person.mutable_home()->set_lng(-1000.0);
+        person.mutable_amsg();
+        std::cout << pgv::validate(person, &log) << "\n";
+    }
+    {
+        custom::Outside outside;
+        std::cout << pgv::validate(outside, &log) << "\n";
+        std::cout << pgv::validate(*outside.mutable_amsg(), &log) << "\n";
+    }
     return 0;
 }

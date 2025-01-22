@@ -34,13 +34,14 @@ for FILE in $(ls generated/*.validate.cc); do
     mv $FILE.tmp $FILE
 done
 
-for FILE in $(ls generated/*.cc); do
-    time g++ -g -std=c++23 -o $FILE.o -c $FILE -I generated/ -I ../cpp -I "$PROTOBUF_SRC"
+time g++ -g -std=c++23 -c main.cpp -I custom -I generated/ -I ../cpp -I "$PROTOBUF_SRC"
+
+for FILE in $(ls generated/*.cc custom/*.cpp); do
+    time g++ -g -std=c++23 -o $FILE.o -c $FILE -I generated/ -I custom -I ../cpp -I "$PROTOBUF_SRC"
 done
 
 time g++ -g -std=c++23 -c ../cpp/pgv/validate_detail.cpp -I ../cpp -I "$PROTOBUF_SRC"
 time g++ -g -std=c++23 -c generated/validate/validate.pb.cc -I generated/ -I ../cpp -I "$PROTOBUF_SRC"
-time g++ -g -std=c++23 -c main.cpp -I generated/ -I ../cpp -I "$PROTOBUF_SRC"
 
 set +x
 LIBS=""
