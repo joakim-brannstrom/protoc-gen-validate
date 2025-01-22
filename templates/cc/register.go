@@ -48,6 +48,7 @@ func RegisterModule(tpl *template.Template, params pgs.Parameters) {
 		"oneof":         fns.oneofTypeName,
 		"output":        fns.output,
 		"package":       fns.packageName,
+		"package_ns":    fns.packageName2,
 		"parent":        fns.parent,
 		"quote":         fns.quote,
 		"staticVarName": fns.staticVarName,
@@ -108,7 +109,8 @@ func RegisterHeader(tpl *template.Template, params pgs.Parameters) {
 		"class":                fns.className,
 		"class_base":           fns.classBaseName,
 		"output":               fns.output,
-		"package":              fns.packageName2,
+		"package":              fns.packageName,
+		"package_ns":           fns.packageName2,
 		"screaming_snake_case": strcase.ToScreamingSnake,
 	})
 
