@@ -79,8 +79,7 @@ protected:
 
 template <typename T> class CustomValidator : public BaseValidator {
 public:
-    template<typename Fn>
-    CustomValidator(Fn fn) : check_(fn) {
+    CustomValidator(auto fn) : check_(fn) {
         customValidators()[std::type_index(typeid(T))] =
             [this](const google::protobuf::Message& topParent,
                    const google::protobuf::Message& parent, const google::protobuf::Message& m,
