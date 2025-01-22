@@ -77,60 +77,26 @@ protected:
     customValidators();
 };
 
-template <typename T> class CustomValidator : public BaseValidator {
+template <typename ValidateFn, typename MessageT>
+concept CustomValidatorLambdaSignature = requires(ValidateFn validateFn, const google::protobuf::Message& topParent, const google::protobuf::Message& parent, const MessageT& msg, pgv::ValidationLog* err) {
+    { validateFn(topParent, parent, msg, err) } -> std::same_as<bool>;
+};
+
+template <typename MessageT> class CustomValidator : public BaseValidator {
 public:
-    CustomValidator(auto fn) : check_(fn) {
-        customValidators()[std::type_index(typeid(T))] =
+    template<CustomValidatorLambdaSignature<MessageT> LambdaT>
+    CustomValidator(LambdaT fn) : check_(fn) {
+        customValidators()[std::type_index(typeid(MessageT))] =
             [this](const google::protobuf::Message& topParent,
                    const google::protobuf::Message& parent, const google::protobuf::Message& m,
                    ValidationLog* err) -> bool {
-            return check_(topParent, parent, dynamic_cast<const T&>(m), err);
-        };
-    }
-
-    CustomValidator(std::function<bool(const T&, ValidationLog*)> check) {
-        check_ = [check = std::move(check)](const google::protobuf::Message& topParent,
-                   const google::protobuf::Message& parent, const T& m,
-                   ValidationLog* err) -> bool {
-            return check(m, err);
-        };
-
-        customValidators()[std::type_index(typeid(T))] =
-            [this](const google::protobuf::Message& topParent,
-                   const google::protobuf::Message& parent, const google::protobuf::Message& m,
-                   ValidationLog* err) -> bool {
-            return check_(topParent, parent, dynamic_cast<const T&>(m), err);
-        };
-    }
-    CustomValidator(std::function<bool(const google::protobuf::Message&, const T&, ValidationLog*)> check) {
-        check_ = [check = std::move(check)](const google::protobuf::Message& topParent,
-                   const google::protobuf::Message& parent, const T& m,
-                   ValidationLog* err) -> bool {
-            return check(parent, m, err);
-        };
-
-        customValidators()[std::type_index(typeid(T))] =
-            [this](const google::protobuf::Message& topParent,
-                   const google::protobuf::Message& parent, const google::protobuf::Message& m,
-                   ValidationLog* err) -> bool {
-            return check_(topParent, parent, dynamic_cast<const T&>(m), err);
-        };
-    }
-    CustomValidator(std::function<bool(const google::protobuf::Message&,
-                                       const google::protobuf::Message&, const T&, ValidationLog*)>
-                        check)
-        : check_(check) {
-        customValidators()[std::type_index(typeid(T))] =
-            [this](const google::protobuf::Message& topParent,
-                   const google::protobuf::Message& parent, const google::protobuf::Message& m,
-                   ValidationLog* err) -> bool {
-            return check_(topParent, parent, dynamic_cast<const T&>(m), err);
+            return check_(topParent, parent, dynamic_cast<const MessageT&>(m), err);
         };
     }
 
 private:
     std::function<bool(const google::protobuf::Message& topParent,
-                       const google::protobuf::Message& parent, const T&, ValidationLog*)>
+                       const google::protobuf::Message& parent, const MessageT&, ValidationLog*)>
         check_;
 };
 

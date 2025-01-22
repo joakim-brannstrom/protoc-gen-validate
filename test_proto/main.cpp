@@ -42,8 +42,7 @@ bool customCheck(const google::protobuf::Message& topParent_, const google::prot
     return true;
 }
 
-//pgv::CustomValidator<examplepb::Person::Location> registerCustomCheck(static_cast<bool (*)(const google::protobuf::Message&,const google::protobuf::Message&, const examplepb::Person::Location& loc, pgv::ValidationLog* err)>(customCheck));
-pgv::CustomValidator<examplepb::inner::Person::Location> registerCustomCheck(&customCheck);
+pgv::CustomValidator<examplepb::inner::Person::Location> register__customCheck__inner__person(&customCheck);
 
 int main(int argc, char **argv) {
     BasicValidationLog log;
