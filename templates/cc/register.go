@@ -160,9 +160,9 @@ func (fns CCFuncs) accessor(ctx shared.RuleContext) string {
 		return ctx.AccessorOverride
 	}
 
-	return fmt.Sprintf(
+	return strings.ToLower(fmt.Sprintf(
 		"m.%s()",
-		fns.methodName(ctx.Field.Name()))
+		fns.methodName(ctx.Field.Name())))
 }
 
 func (fns CCFuncs) hasAccessor(ctx shared.RuleContext) string {
@@ -170,9 +170,9 @@ func (fns CCFuncs) hasAccessor(ctx shared.RuleContext) string {
 		return "true"
 	}
 
-	return fmt.Sprintf(
+	return strings.ToLower(fmt.Sprintf(
 		"m.has_%s()",
-		fns.methodName(ctx.Field.Name()))
+		fns.methodName(ctx.Field.Name())))
 }
 
 type childEntity interface {
