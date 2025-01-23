@@ -14,9 +14,9 @@ if [[ -z "$PROTOBUF_LIB" ]]; then
 fi
 
 pushd validate
-rm -rf github.com
-$PROTOC_BIN -I. --go_out=. validate.proto
-cp github.com/envoyproxy/protoc-gen-validate/validate/validate.pb.go validate.pb.go
+#rm -rf github.com
+#$PROTOC_BIN -I. --go_out=. validate.proto
+#cp github.com/envoyproxy/protoc-gen-validate/validate/validate.pb.go validate.pb.go
 popd
 
 ./local_build.sh
@@ -36,7 +36,7 @@ done
 
 time g++ -g -std=c++23 -c main.cpp -I custom -I generated/ -I ../cpp -I "$PROTOBUF_SRC"
 
-for FILE in $(ls generated/*.cc custom/*.cpp); do
+for FILE in $(ls generated/*.cc custom/*.custom.validate.cpp); do
     time g++ -g -std=c++23 -o $FILE.o -c $FILE -I generated/ -I custom -I ../cpp -I "$PROTOBUF_SRC"
 done
 
