@@ -90,7 +90,7 @@ namespace pgv {
 {{- if not (disabled .) -}}
 {{- if not (custom_register .) -}}
 /// @ref {{ class . }}
-[[nodiscard]] static inline bool validate(const {{ class . }}& m, pgv::ValidationLog* err = nullptr) {
+[[nodiscard]] inline bool validate(const {{ class . }}& m, pgv::ValidationLog* err = nullptr) {
     return {{ package . }}::validate(m, err);
 }
 {{- else -}}
