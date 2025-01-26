@@ -37,7 +37,7 @@ message Person {
   string astring = 11 [(validate.rules).string = {max_bytes: 999, required: true}];
   bytes abytes = 12 [(validate.rules).bytes = {max_len: 999, required: true}];
   MyEnum aenum = 13 [(validate.rules).enum = {in: [0], required: true}];
-  Location amsg = 14 [(validate.rules).message = {required: true, custom: true}];
+  Location amsg = 14 [(validate.rules).message = {required: true, custom_validate: true}];
   repeated Embedded arepeated = 15 [(validate.rules).repeated = {max_items: 5}];
   MyEnum class = 16 [(validate.rules).enum = {required: true}];
   double adouble = 17 [(validate.rules).double = {required:true, gte: 4}];

@@ -15,11 +15,11 @@ extend google.protobuf.MessageOptions {
     optional bool disabled = 1071;
     // Ignore skips generation of validation methods for this message.
     optional bool ignored = 1072;
-    // The validation function is not automatically registered.
-    // Allows the user to register their own validator function for the message type.
+    // The user is tasked with creating a validator function and register it
+    // for the message type.
     // The validator is generated though so the users validator can use the
     // generated in the implementation of their own.
-    optional bool custom_register = 1073;
+    optional bool custom_validate = 1073;
 }
 
 // Validation rules applied at the oneof level
@@ -982,7 +982,7 @@ message MessageRules {
     optional bool required = 2;
 
     // Call a user defined validate function for the message.
-    optional bool custom   = 3;
+    optional bool custom_validate   = 3;
 }
 
 // RepeatedRules describe the constraints applied to `repeated` values

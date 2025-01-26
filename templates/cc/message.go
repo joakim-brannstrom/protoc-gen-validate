@@ -5,7 +5,7 @@ const messageTpl = `
 	{{ template "required" . }}
 	{{ if .MessageRules.GetSkip }}
 		// skipping validation for {{ $f.Name }}
-    {{ else if .MessageRules.GetCustom }}
+    {{ else if .MessageRules.GetCustomValidate }}
 		if ({{ hasAccessor .}} && !pgv::BaseValidator::CustomCheckMessage({{ topParent . }}, {{ parent . }}, {{ accessor . }}, err)) {
             if (err) { err->embedded(); }
 			{{ errCause . "err" "embedded message failed validation" }}

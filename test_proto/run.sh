@@ -13,11 +13,11 @@ if [[ -z "$PROTOBUF_LIB" ]]; then
     exit 1
 fi
 
-pushd validate
+#pushd validate
 #rm -rf github.com
 #$PROTOC_BIN -I. --go_out=. validate.proto
 #cp github.com/envoyproxy/protoc-gen-validate/validate/validate.pb.go validate.pb.go
-popd
+#popd
 
 ./local_build.sh
 export PATH=$PWD:$PATH
@@ -51,6 +51,6 @@ for LIB in $(find "$PROTOBUF_LIB" -iname "lib*absl*.a"); do
 done
 set -x
 
-time g++ -o main *.o generated/*.o -L $PROTOBUF_LIB -Wl,--start-group -lprotobuf -lutf8_range -lutf8_validity $LIBS -Wl,--end-group
+time g++ -o main *.o generated/*.o custom/*.o -L $PROTOBUF_LIB -Wl,--start-group -lprotobuf -lutf8_range -lutf8_validity $LIBS -Wl,--end-group
 ./main
 popd

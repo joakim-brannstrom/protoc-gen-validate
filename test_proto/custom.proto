@@ -5,7 +5,7 @@ package custom;
 import "validate/validate.proto";
 
 message Outside {
-    option (validate.custom_register) = true;
+    option (validate.custom_validate) = true;
     int32 aint = 1 [(validate.rules).int32 = {gt: 999}];
     Inside amsg = 2 [(validate.rules).message = {required: true}];
 }
