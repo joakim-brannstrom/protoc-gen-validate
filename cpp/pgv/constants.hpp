@@ -3,5 +3,5 @@
 #include <numbers>
 
 namespace pgv::constants {
-    using namespace std::numbers;
+using namespace std::numbers;
 }

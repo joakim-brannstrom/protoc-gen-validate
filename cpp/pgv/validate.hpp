@@ -6,8 +6,6 @@
 
 #include <functional>
 #include <string>
-#include <typeindex>
-#include <typeinfo>
 #include <unordered_map>
 
 #include "google/protobuf/message.h"
@@ -15,6 +13,8 @@
 namespace pgv {
 class ValidationLog {
 public:
+    virtual ~ValidationLog() = default;
+
     /// Called one or more times to build up an error message.
     virtual void log(const std::string_view& v) = 0;
 
@@ -62,31 +62,40 @@ public:
                                    const google::protobuf::Message& parent,
                                    const google::protobuf::Message& m, ValidationLog* err);
 
+    /**
+     * Called by validate functions to ensure that the global variable that
+     * register the validator isn't removed by the linker.
+     */
+    void internalKeepSymbol();
+
 protected:
     // Used to implement AbstractCheckMessage() above. Every message that is linked into the binary
     // will register itself by type_index, allowing for polymorphic lookup later.
     static std::unordered_map<
-        std::type_index, std::function<bool(const google::protobuf::Message&,
-                                            const google::protobuf::Message&, ValidationLog*)>>&
+        const void*, std::function<bool(const google::protobuf::Message&,
+                                        const google::protobuf::Message&, ValidationLog*)>>&
     abstractValidators();
 
     static std::unordered_map<
-        std::type_index,
+        const void*,
         std::function<bool(const google::protobuf::Message&, const google::protobuf::Message&,
                            const google::protobuf::Message&, ValidationLog*)>>&
     customValidators();
 };
 
 template <typename ValidateFn, typename MessageT>
-concept CustomValidatorLambdaSignature = requires(ValidateFn validateFn, const google::protobuf::Message& topParent, const google::protobuf::Message& parent, const MessageT& msg, pgv::ValidationLog* err) {
+concept CustomValidatorLambdaSignature = requires(ValidateFn validateFn,
+                                                  const google::protobuf::Message& topParent,
+                                                  const google::protobuf::Message& parent,
+                                                  const MessageT& msg, pgv::ValidationLog* err) {
     { validateFn(topParent, parent, msg, err) } -> std::same_as<bool>;
 };
 
 template <typename MessageT> class CustomValidator : public BaseValidator {
 public:
-    template<CustomValidatorLambdaSignature<MessageT> LambdaT>
+    template <CustomValidatorLambdaSignature<MessageT> LambdaT>
     CustomValidator(LambdaT fn) : check_(fn) {
-        customValidators()[std::type_index(typeid(MessageT))] =
+        customValidators()[static_cast<const void*>(MessageT::default_instance().GetDescriptor())] =
             [this](const google::protobuf::Message& topParent,
                    const google::protobuf::Message& parent, const google::protobuf::Message& m,
                    ValidationLog* err) -> bool {

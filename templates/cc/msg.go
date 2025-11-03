@@ -146,6 +146,7 @@ bool validate(const google::protobuf::Message& topParent, const {{ class_base . 
 {{- if disabled . }}
 	return true;
 {{ else -}}
+    pgv::{{ staticVarName . }}.internalKeepSymbol();
     if (err && !err->isActive()) {
         err = nullptr;
     }

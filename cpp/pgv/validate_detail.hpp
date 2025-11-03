@@ -20,7 +20,8 @@ public:
         std::function<bool(const google::protobuf::Message& topParent, const T&, ValidationLog*)>
             check)
         : check_(check) {
-        abstractValidators()[std::type_index(typeid(T))] =
+        abstractValidators()[static_cast<const void*>(
+            T::default_instance().GetDescriptor())] =
             [this](const google::protobuf::Message& topParent, const google::protobuf::Message& m,
                    ValidationLog* err) -> bool {
             return check_(topParent, dynamic_cast<const T&>(m), err);
